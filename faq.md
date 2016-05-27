@@ -93,5 +93,5 @@ fixed.
 
 ## I have some questions, where can I go?
 
-See the [Contact section in the README](README.md#Contact).
+See the [Contact section in the README](README.md#contact).
 

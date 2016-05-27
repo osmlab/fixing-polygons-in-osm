@@ -6,6 +6,7 @@
 Usual GIS systems understand three different kinds of geometric objects: points, linestrings, and polygons. Points and linestrings are easy to understand and use, but polygons can be complex and difficult to understand objects. In the often used [Simple Features](https://en.wikipedia.org/wiki/Simple_Features) definition a polygon can have one outer (or exterior) ring defining the outer border of the polygon and zero or more inner (or interior) rings. Inner rings are used for holes inside the polygon. Think lake in a forest or courtyard in a building. Having the option to model those holes is important. A courtyard in a building is not just a green area drawn on top of a brown area hiding what's underneath. To calculate, say, the footprint area of a building, you need to subtract the area of the courtyard from the area defined by the outer border of the polygon.
 
 ![Example Polygons](example-polygons.png)
+
 *Example polygons from Simple Features definition*
 
 ## Multipolygons
@@ -13,6 +14,7 @@ Usual GIS systems understand three different kinds of geometric objects: points,
 A multipolygon is basically just a collection of polygons. A multipolygon can have several outer rings, each can have zero or more inner rings. Multipolygons are useful for areas like "the United States" (think Alaska, Hawaii, and all the small islands off the coast) or a national park that is split up into several pieces. Multipolygons say: This is one national park with several disjunct areas. Several polygons (maybe with the same attributes) would say: These are several national parks that happen to have the same name. Clearly the former is what you want to have.
 
 ![Example multipolygons](example-multipolygons.png)
+
 *Example multipolygons from Simple Features definition*
 
 Just as there is the concept of a multipolygon, there are the concepts of multipoints and multilinestrings. But they are generally less important and don't play a role in OSM. (Although you can think of hiking routes or public transport routes as multilinestrings.)
@@ -33,6 +35,7 @@ For some more details see [this stackexchange question](https://gis.stackexchang
 
 ![Examples of invalid polygons](invalid-polygons.png)
 ![Examples of invalid multipolygons](invalid-multipolygons.png)
+
 *Examples of invalid polygons and multipolygons from Simple Features definition*
 
 Not all "things" you can build with outer and inner rings will lead to a "proper" polygon or multipolygon. It is obvious that overlapping rings (outer or inner) are not allowed for instance. But there are other rules that are not so easy to understand (and get right). There are many rules in the Simple Features definition that define what is and what isn't a valid (multi)polygon. These rules help to make sure that there is only one way a (multi)polygon can be modelled and they help the algorithms to be more efficient and correct. The rules in the official definition might be mathematically precise, but they are hard to read. Here are some of those rules, somewhat translated:
