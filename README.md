@@ -28,8 +28,8 @@ it easier to detect mapping errors raising the **quality of the OSM data**.
 
 ## More Information
 
-* [Background on (multi)polygons](background.md)
-* [Frequently Asked Questions (FAQ)](faq.md)
+* [Background on (multi)polygons](doc/background.md)
+* [Frequently Asked Questions (FAQ)](doc/faq.md)
 
 
 ## Contact
