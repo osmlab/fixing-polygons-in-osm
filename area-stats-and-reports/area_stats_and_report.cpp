@@ -35,7 +35,7 @@ class LastTimestampHandler : public osmium::handler::Handler {
 public:
 
     LastTimestampHandler() :
-        m_timestamp(0) {
+        m_timestamp(osmium::start_of_time()) {
     }
 
     void osm_object(const osmium::OSMObject& object) noexcept {
@@ -71,11 +71,11 @@ void read_relations(collector_type& collector, const osmium::io::File& file) {
     reader.close();
 }
 
-void insert(Sqlite::Statement& statement, const osmium::Timestamp& time, const char* key, int32_t value) {
-    statement.bind_text(time.to_iso());
-    statement.bind_text(key);
-    statement.bind_int(value);
-    statement.execute();
+void insert(Sqlite::Statement& statement, const std::string& time, const char* key, int32_t value) {
+    statement.bind_text(time)
+             .bind_text(key)
+             .bind_int(value)
+             .execute();
 }
 
 int main(int argc, char* argv[]) {
@@ -91,10 +91,10 @@ int main(int argc, char* argv[]) {
         {0, 0, 0, 0}
     };
 
-    std::string errors_database_name;
-    std::string stats_database_name;
+    std::string errors_database_name{"areas.db"};
+    std::string stats_database_name{"stats.db"};
+    std::string location_index_type{"sparse_mmap_array"};
 
-    std::string location_index_type = "sparse_mmap_array";
     const auto& map_factory = osmium::index::MapFactory<osmium::unsigned_object_id_type, osmium::Location>::instance();
 
     osmium::area::Assembler::config_type assembler_config;
@@ -195,7 +195,7 @@ int main(int argc, char* argv[]) {
 
         Sqlite::Statement stmt{db, "INSERT INTO stats (date, key, value) VALUES (?, ?, ?);"};
 
-        osmium::Timestamp last_time = last_timestamp.get_timestamp();
+        const std::string last_time = last_timestamp.get_timestamp().to_iso();
         const auto& stats = collector.stats();
         insert(stmt, last_time, "area_really_complex_case", stats.area_really_complex_case);
         insert(stmt, last_time, "area_simple_case", stats.area_simple_case);
