@@ -71,10 +71,10 @@ void read_relations(collector_type& collector, const osmium::io::File& file) {
     reader.close();
 }
 
-void insert(Sqlite::Statement& statement, const std::string& time, const char* key, int32_t value) {
+void insert(Sqlite::Statement& statement, const std::string& time, const char* key, uint64_t value) {
     statement.bind_text(time)
              .bind_text(key)
-             .bind_int(value)
+             .bind_int64(value)
              .execute();
 }
 
