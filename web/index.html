@@ -1,17 +1,36 @@
 <html>
     <head>
-        <title>area.jochentopf.com</title>
+        <title>Fixing Polygons in OSM</title>
     </head>
     <body>
 
-    <h1>area.jochentopf.com</h1>
+        <h1>Fixing Polygons in OSM</h1>
 
-    <p>Read <a href="https://github.com/joto/fixing-polygons-in-osm/blob/master/README.md">this to understand what this site is about.</a></p>
+        <p>Read <a href="https://github.com/joto/fixing-polygons-in-osm/blob/master/README.md">this to understand what this site is about.</a></p>
 
-    <ul>
-        <li><a href="/download">download</a></li>
-        <li><a href="/map/index.html">map</a></li>
-    </ul>
+        <h2>Comparison map</h2>
+
+        <p>To see what the map would look like if we removed <i>old-style</i>
+        multipolygons, you can use our <a href="/map/index.html">comparison
+        map</a>.</p>
+
+        <h2>Downloads</h2>
+
+        <p>For those who want to dive deeper into the data we offer several
+        <a href="/download/">downloads</a>. Files are updated daily from
+        current planet.</p>
+
+        <dl>
+            <dt><a href="/download/area-stats.db">area-stats.db</a></dt>
+            <dd>Sqlite database containing daily statistics on areas in OSM (small file).</dd>
+            <dt><a href="/download/old-style.osm.pbf">old-style.osm.pbf</a></dt>
+            <dd>OSM PBF file containing only old-style multipolygons, ie relations
+                tagged only with <tt>type=multipolygon</tt> with all dependant ways and nodes (about 300 MBytes).</dd>
+            <dt><a href="/download/areas.db">areas.db</a></dt>
+            <dd>Spatialite database containing information about all problems found in OSM areas (about 1.2 GByte). Get
+                <a href="https://raw.githubusercontent.com/osmcode/osm-area-tools/master/area-errors.qgs">this QGIS project file</a> and
+                put it in the same directory as the <tt>areas.db</tt> file and run <tt>qgis area-errors.qgs</tt>.</dd>
+        </dl>
 
     </body>
 </html>
