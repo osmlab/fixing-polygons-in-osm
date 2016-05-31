@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Swipe between OSM map layers</title>
+        <meta charset="utf-8" />
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='/js/leaflet.js'></script>
+        <link rel="stylesheet" href="/css/leaflet.css" />
+        <style>
+body {
+    margin:0;
+    padding:0;
+}
+
+input {
+    margin:0;
+    padding:0;
+    border:0;
+    height: 20px;
+}
+
+#map {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    margin: 10px;
+    border: 1px solid #a0a0a0;
+}
+
+.range {
+    position: absolute;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    left: 0;
+    margin: 0;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+
+input::-moz-focus-inner { 
+    border: 0;
+    outline: 0;
+}
+
+.leaflet-top .leaflet-control-zoom {
+    top:20px;
+}
+
+#divider {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    left: 0;
+    width: 0px;
+    border-left: 4px dotted #842e2e;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px 3px rgba(255, 255, 255, 1);
+}
+
+#box {
+    position: absolute;
+    width: 100%;
+    top:0;
+    bottom: 0;
+    padding: 10px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+
+#left {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+
+#right {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+    </style>
+    </head>
+    <body>
+        <div id="box">
+        <input id='range' class='range' type='range' min='0' max='1.0' step='any' />
+        <div id='map'></div>
+        <div id="divider"></div>
+        <div id="titles">
+        <div id="left">No "old style"</div>
+        <div id="right">Original map</div>
+        </div>
+        </div>
+        <script>
+var map = L.map('map');
+L.tileLayer('http://area.jochentopf.com/osm_tiles/{z}/{x}/{y}.png').addTo(map);
+var overlay =  L.tileLayer('http://area.jochentopf.com/no_old_mps/{z}/{x}/{y}.png').addTo(map);
+
+var range = document.getElementById('range');
+var divider = document.getElementById('divider');
+
+function clip() {
+    var nw = map.containerPointToLayerPoint([0, 0]),
+        se = map.containerPointToLayerPoint(map.getSize()),
+        clipX = nw.x + (se.x - nw.x) * range.value;
+
+    overlay.getContainer().style.clip = 'rect(' + [nw.y, clipX, se.y, nw.x].join('px,') + 'px)';
+
+    divider.style.left = (map.getSize().x * range.value + 10) + 'px';
+}
+
+range['oninput' in range ? 'oninput' : 'onchange'] = clip;
+map.on('move', clip);
+
+clip();
+        </script>
+    </body>
+</html>
