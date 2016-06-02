@@ -102,7 +102,7 @@ input::-moz-focus-inner {
         </div>
         </div>
         <script>
-var map = L.map('map');
+var map = L.map('map').setView([30, 0], 3);
 L.tileLayer('http://area.jochentopf.com/osm_tiles/{z}/{x}/{y}.png').addTo(map);
 var overlay =  L.tileLayer('http://area.jochentopf.com/no_old_mps/{z}/{x}/{y}.png').addTo(map);
 
