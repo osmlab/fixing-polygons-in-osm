@@ -8,20 +8,53 @@
         <link rel="stylesheet" href="/css/leaflet.css" />
         <style>
 body {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+div#top {
+    background-color: #404080;
+    color: #f0f0f0;
+    height: 20px;
+    padding: 6px;
+}
+
+div#top a {
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+div#top a:hover {
+    text-decoration: underline;
+}
+
+div#left {
+    position: absolute;
+    left: 20px;
+    top: 40px;
+    font-size: large;
+    font-weight: bold;
+}
+
+div#right {
+    position: absolute;
+    right: 20px;
+    top: 40px;
+    font-size: large;
+    font-weight: bold;
 }
 
 input {
-    margin:0;
-    padding:0;
-    border:0;
+    margin: 0;
+    padding: 0;
+    border: 0;
     height: 20px;
 }
 
 #map {
     position: absolute;
-    top: 20px;
+    top: 30px;
     bottom: 20px;
     left: 0;
     right: 0;
@@ -41,7 +74,7 @@ input {
     -webkit-box-sizing:border-box;
 }
 
-input::-moz-focus-inner { 
+input::-moz-focus-inner {
     border: 0;
     outline: 0;
 }
@@ -52,7 +85,7 @@ input::-moz-focus-inner {
 
 #divider {
     position: absolute;
-    top: 20px;
+    top: 30px;
     bottom: 20px;
     margin-top: 14px;
     margin-bottom: 14px;
@@ -66,7 +99,7 @@ input::-moz-focus-inner {
 #box {
     position: absolute;
     width: 100%;
-    top:0;
+    top: 60px;
     bottom: 0;
     padding: 10px;
     box-sizing:border-box;
@@ -74,37 +107,25 @@ input::-moz-focus-inner {
     -webkit-box-sizing:border-box;
 }
 
-#left {
-    position: absolute;
-    left: 20px;
-    bottom: 10px;
-    font-size: large;
-    font-weight: bold;
-}
-
-#right {
-    position: absolute;
-    right: 20px;
-    bottom: 10px;
-    font-size: large;
-    font-weight: bold;
-}
     </style>
     </head>
     <body>
+        <div id="top"><a href="/">Fixing Polygons in OSM</a></div>
+        <div id="titles">
+        <div id="left">Original OSM map</div>
+        <div id="right">No "old style" multipolygons</div>
+        </div>
         <div id="box">
         <input id='range' class='range' type='range' min='0' max='1.0' step='any' />
         <div id='map'></div>
         <div id="divider"></div>
-        <div id="titles">
-        <div id="left">No "old style"</div>
-        <div id="right">Original map</div>
-        </div>
         </div>
         <script>
 var map = L.map('map').setView([30, 0], 3);
-L.tileLayer('http://area.jochentopf.com/osm_tiles/{z}/{x}/{y}.png').addTo(map);
-var overlay =  L.tileLayer('http://area.jochentopf.com/no_old_mps/{z}/{x}/{y}.png').addTo(map);
+L.tileLayer('http://area.jochentopf.com/no_old_mps/{z}/{x}/{y}.png', {
+    'attribution': '© <a href="https://www.openstreetmap.org/copyright/">OpenStreetMap</a> contributors'
+}).addTo(map);
+var overlay =  L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
 var range = document.getElementById('range');
 var divider = document.getElementById('divider');
