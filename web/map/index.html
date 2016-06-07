@@ -123,6 +123,7 @@ input::-moz-focus-inner {
     left: 10px;
     right: 10px;
     padding: 4px;
+    font-size: 90%;
 }
 
     </style>
@@ -141,7 +142,8 @@ input::-moz-focus-inner {
         </div>
         <div id="desc">On the left side the original OSM map tiles from <a href="https://www.openstreetmap.org/">www.openstreetmap.org</a>. On the right side
         the same map but with <i>old style</i> multipolygons ignored, ie. those multipolygon relations where the relation doesn't have any tags, but the tags
-        are on the outer ways.</div>
+        are on the outer ways. You can ignore differences with labels and highway shields, they are caused by different software versions. Move the slider
+        handle above the map to position the deviding line.</div>
         <script>
 var map = L.map('map').setView([30, 0], 3);
 L.tileLayer('http://area.jochentopf.com/no_old_mps/{z}/{x}/{y}.png', {
