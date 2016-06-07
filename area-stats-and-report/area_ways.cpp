@@ -18,15 +18,14 @@ typedef osmium::handler::NodeLocationsForWays<index_pos_type> location_handler_t
 
 class MyOGRHandler : public osmium::handler::Handler {
 
+    osmium::geom::OGRFactory<osmium::geom::MercatorProjection>& m_factory;
     gdalcpp::Layer m_layer_linestring;
-
-    osmium::geom::OGRFactory<osmium::geom::MercatorProjection> m_factory;
 
 public:
 
-    MyOGRHandler(gdalcpp::Dataset& dataset) :
+    MyOGRHandler(gdalcpp::Dataset& dataset, osmium::geom::OGRFactory<osmium::geom::MercatorProjection>& factory) :
+        m_factory(factory),
         m_layer_linestring(dataset, "lines", wkbLineString) {
-
         m_layer_linestring.add_field("way_id", OFTInteger, 10);
     }
 
@@ -35,7 +34,7 @@ public:
             gdalcpp::Feature feature(m_layer_linestring, m_factory.create_linestring(way));
             feature.set_field("way_id", int(way.id()));
             feature.add_to_layer();
-        } catch (osmium::geometry_error&) {
+        } catch (...) { //osmium::geometry_error&) {
             std::cerr << "Ignoring illegal geometry for way " << way.id() << ".\n";
         }
     }
@@ -51,7 +50,7 @@ void print_help() {
               << "\nOptions:\n" \
               << "  -h, --help                 This help message\n" \
               << "  -l, --location_store=TYPE  Set location store\n" \
-              << "  -f, --format=FORMAT        Output OGR format (Default: 'SQLite')\n" \
+              << "  -f, --format=FORMAT        Output OGR format (Default: 'ESRI Shapefile')\n" \
               << "  -L                         See available location stores\n";
 }
 
@@ -117,8 +116,10 @@ int main(int argc, char* argv[]) {
     location_handler_type location_handler(*index_pos);
     location_handler.ignore_errors();
 
-    gdalcpp::Dataset dataset{output_format, output_filename, gdalcpp::SRS{}};
-    MyOGRHandler ogr_handler(dataset);
+    osmium::geom::OGRFactory<osmium::geom::MercatorProjection> factory;
+
+    gdalcpp::Dataset dataset{output_format, output_filename, gdalcpp::SRS{factory.proj_string()}};
+    MyOGRHandler ogr_handler(dataset, factory);
 
     osmium::apply(reader, location_handler, ogr_handler);
     reader.close();
