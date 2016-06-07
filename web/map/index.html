@@ -35,7 +35,16 @@ div#left {
     left: 20px;
     top: 40px;
     font-size: large;
+}
+
+div#middle {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 40px;
+    font-size: large;
     font-weight: bold;
+    text-align: center;
 }
 
 div#right {
@@ -43,7 +52,7 @@ div#right {
     right: 20px;
     top: 40px;
     font-size: large;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 input {
@@ -56,7 +65,7 @@ input {
 #map {
     position: absolute;
     top: 30px;
-    bottom: 20px;
+    bottom: 40px;
     left: 0;
     right: 0;
     margin: 10px;
@@ -87,7 +96,7 @@ input::-moz-focus-inner {
 #divider {
     position: absolute;
     top: 30px;
-    bottom: 20px;
+    bottom: 40px;
     margin-top: 14px;
     margin-bottom: 14px;
     left: 0;
@@ -108,19 +117,31 @@ input::-moz-focus-inner {
     -webkit-box-sizing:border-box;
 }
 
+#desc {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    padding: 4px;
+}
+
     </style>
     </head>
     <body>
-        <div id="top"><a href="/">Fixing Polygons in OSM</a></div>
+        <div id="top"><a href="/">&nwarr; Fixing Polygons in OSM</a></div>
         <div id="titles">
         <div id="left">Original OSM map</div>
-        <div id="right">No "old style" multipolygons</div>
+        <div id="middle">&larr; Comparison map &rarr;</div>
+        <div id="right">No <i>old style</i> multipolygons</div>
         </div>
         <div id="box">
         <input id='range' class='range' type='range' min='0' max='1.0' step='any' />
         <div id='map'></div>
         <div id="divider"></div>
         </div>
+        <div id="desc">On the left side the original OSM map tiles from <a href="https://www.openstreetmap.org/">www.openstreetmap.org</a>. On the right side
+        the same map but with <i>old style</i> multipolygons ignored, ie. those multipolygon relations where the relation doesn't have any tags, but the tags
+        are on the outer ways.</div>
         <script>
 var map = L.map('map').setView([30, 0], 3);
 L.tileLayer('http://area.jochentopf.com/no_old_mps/{z}/{x}/{y}.png', {
