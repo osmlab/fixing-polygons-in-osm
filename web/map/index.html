@@ -5,6 +5,7 @@
         <meta charset="utf-8" />
         <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
         <script src='/js/leaflet.js'></script>
+        <script src='/js/leaflet-hash.js'></script>
         <link rel="stylesheet" href="/css/leaflet.css" />
         <style>
 body {
@@ -144,6 +145,7 @@ range['oninput' in range ? 'oninput' : 'onchange'] = clip;
 map.on('move', clip);
 
 clip();
+var hash = L.hash(map);
         </script>
     </body>
 </html>
