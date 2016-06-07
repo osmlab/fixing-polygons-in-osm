@@ -52,7 +52,6 @@ div#right {
     right: 20px;
     top: 40px;
     font-size: large;
-    /*font-weight: bold;*/
 }
 
 input {
@@ -149,7 +148,12 @@ var map = L.map('map').setView([30, 0], 3);
 L.tileLayer('http://area.jochentopf.com/no_old_mps/{z}/{x}/{y}.png', {
     'attribution': '© <a href="https://www.openstreetmap.org/copyright/">OpenStreetMap</a> contributors'
 }).addTo(map);
-var overlay =  L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+var overlay = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+var ways = L.tileLayer('http://area.jochentopf.com/old_mp_ways_overlay/{z}/{x}/{y}.png');
+var overlayMaps = {
+    "Mark old style areas": ways
+};
+L.control.layers({}, overlayMaps).addTo(map);
 
 var range = document.getElementById('range');
 var divider = document.getElementById('divider');
