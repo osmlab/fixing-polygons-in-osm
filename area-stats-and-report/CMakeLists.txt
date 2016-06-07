@@ -147,4 +147,8 @@ add_executable(area_stats_and_report area_stats_and_report.cpp)
 target_link_libraries(area_stats_and_report ${OSMIUM_LIBRARIES} sqlite3)
 install(TARGETS area_stats_and_report DESTINATION bin)
 
+add_executable(area_ways area_ways.cpp)
+target_link_libraries(area_ways ${OSMIUM_LIBRARIES})
+install(TARGETS area_ways DESTINATION bin)
+
 #-----------------------------------------------------------------------------
