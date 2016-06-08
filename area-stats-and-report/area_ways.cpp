@@ -34,7 +34,7 @@ public:
             gdalcpp::Feature feature(m_layer_linestring, m_factory.create_linestring(way));
             feature.set_field("way_id", int(way.id()));
             feature.add_to_layer();
-        } catch (...) { //osmium::geometry_error&) {
+        } catch (osmium::geometry_error&) {
             std::cerr << "Ignoring illegal geometry for way " << way.id() << ".\n";
         }
     }
@@ -114,7 +114,6 @@ int main(int argc, char* argv[]) {
 
     std::unique_ptr<index_pos_type> index_pos = map_factory.create_map(location_store);
     location_handler_type location_handler(*index_pos);
-    location_handler.ignore_errors();
 
     osmium::geom::OGRFactory<osmium::geom::MercatorProjection> factory;
 
