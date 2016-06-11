@@ -30,6 +30,7 @@ it easier to detect mapping errors raising the **quality of the OSM data**.
 
 * [Background on (multi)polygons](doc/background.md)
 * [Frequently Asked Questions (FAQ)](doc/faq.md)
+* [Some notes about rendering](doc/rendering.md)
 
 
 ## Contact
