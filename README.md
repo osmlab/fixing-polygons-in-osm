@@ -38,7 +38,7 @@ it easier to detect mapping errors raising the **quality of the OSM data**.
 If you have any questions or want to contribute in any way, here are some ways
 to get involved:
 
-* [Open an issue](https://github.com/joto/fixing-polygons-in-osm/issues) on
+* [Open an issue](https://github.com/osmlab/fixing-polygons-in-osm/issues) on
   our github repository.
 * Discuss on the
   [OSM developer mailing list](https://lists.openstreetmap.org/listinfo/dev).
