@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <title>OSM Polygons Statistics</title>
+        <meta charset="utf-8" />
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='/js/d3.min.js'></script>
+        <script src='stats.js'></script>
+        <style>
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.canvas svg text {
+    font: 12px Arial,sans-serif;
+}
+
+.canvas .axis line {
+    fill: none;
+    shape-rendering: crispedges;
+    stroke: #000;
+}
+
+.canvas .axis path {
+    display: none;
+}
+
+div#top {
+    background-color: #404080;
+    color: #f0f0f0;
+    height: 20px;
+    padding: 6px;
+}
+
+div#top a {
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+div#top a:hover {
+    text-decoration: underline;
+}
+
+div#content {
+    margin: 10px;
+}
+
+        </style>
+    </head>
+    <body>
+        <div id="top"><a href="/">&nwarr; Fixing Polygons in OSM</a></div>
+        <div id="content">
+        <h1>OSM Polygons Statistics</h1>
+
+        <p>This page shows several statistics related to multipolygons over time.</p>
+
+        <h2>Multipolygons created from relations</h2>
+        <div class="canvas" id="canvas_from_relations"></div>
+
+        <p>The number of multipolygons created from relations with
+        <tt>type=multipolygon</tt> or <tt>type=boundary</tt>.</p>
+
+        <h2>Multipolygons created from closed ways</h2>
+        <div class="canvas" id="canvas_from_ways"></div>
+
+        <p>The number of (multi)polygons created from closed ways. Tags are not
+        taken into account (except <tt>area=no</tt>, so this also includes
+        closed ways that are not actually polygons, such as roundabouts or so.</p>
+
+        <h2>Nodes in multipolygons</h2>
+        <div class="canvas" id="canvas_nodes"></div>
+
+        <p>The total number of nodes in all multipolygons (created from
+        relations or ways).</p>
+
+        <h2>Old style multipolygons</h2>
+        <div class="canvas" id="canvas_no_tags_on_relation"></div>
+
+        <p>The number of multipolygon relations that have no tags (or only
+        unimportant ones like <tt>created_by</tt> on the relation and have
+        their tags on the outer way(s) instead. This <i>old style</i> tagging
+        is deprecated.</p>
+
+        <h2>Errors: Intersections</h2>
+        <div class="canvas" id="canvas_intersections"></div>
+
+        <p>Multipolygon relations or ways with self-intersections of the way
+        or ways involved. These are broken and need to be fixed.</p>
+
+        <h2>Errors: Duplicate nodes</h2>
+        <div class="canvas" id="canvas_duplicate_nodes"></div>
+
+        <p>Multipolygon relations or ways with consecutive indentical nodes
+        or multiple different nodes at the same location. These are usually
+        fixed while post-processing the multipolygon, but it is still better
+        to fix them in the data.</p>
+
+        <h2>Errors: Duplicate segments</h2>
+        <div class="canvas" id="canvas_duplicate_segments"></div>
+
+        <p>Number of segments (a segment is a connection between two nodes)
+        that appear multiple times in the border of a multipolygon relation
+        or way. This is often, but not always wrong.</p>
+
+        <h2>Errors: Open rings</h2>
+        <div class="canvas" id="canvas_open_rings"></div>
+
+        <p>Multipolygon relation where the outer or inner border is not closed.
+        This is always an error and needs to be fixed.</p>
+
+        <h2>Errors: Inner rings with same tags as outer rings</h2>
+        <div class="canvas" id="canvas_inner_with_same_tags"></div>
+
+        <p>Some multipolygon relations have the same tags on outer and inner
+        ways or the relation and inner ways. This is deprecated. Multipolygon
+        tags should be on the relation only, outer ways are usually not tagged
+        at all (unless they constitute an object in their own right), and inner
+        rings either have no tags or their own tags if they constitute an
+        object in their own right.</p>
+
+        <h2>Errors: Wrong role</h2>
+        <div class="canvas" id="canvas_wrong_role"></div>
+
+        <p>Multipolygon member roles other than empty, <tt>outer</tt> or
+        <tt>inner</tt>.</p>
+        </div>
+    </body>
+</html>
