@@ -1,5 +1,5 @@
 
-# Typical problems with multipolygons as mapped in OSM
+# Typical problems with OSM multipolygons
 
 Here are some typical issues that happen with (multi)polygons.
 
@@ -34,7 +34,7 @@ be possible.
 * Layer `perrors` in `areas.db`, `problem` is `single_node_in_way` or
   `duplicate_node`.
 * [OSM Inspector Geometry view showing single nodes und duplicates
-  nodes](http://tools.geofabrik.de/osmi/?view=geometry&lon=22.51355&lat=44.57208&zoom=8&overlays=single_node_in_way,duplicate_node_in_way)
+  nodes](http://tools.geofabrik.de/osmi/?view=geometry&overlays=single_node_in_way,duplicate_node_in_way)
 
 
 ## Duplicate segments

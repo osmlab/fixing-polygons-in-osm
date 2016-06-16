@@ -107,7 +107,7 @@ problematic cases and help fixing them. We can also use support from editor
 developers. If you think this is a worthwile project, get involved.
 
 
-## Can't we live with the wrong data and fix things in post-processing
+## Can't we fix things in post-processing?
 
 ![Closing rings automatically is hard](closing-rings.png)
 
@@ -120,7 +120,7 @@ choice or (C)? Or do we decide on (D), create an intersection and make the
 problem worse?
 
 
-## Can we fix the OSM data automatically or do we have to do it manually?
+## Can we fix the OSM data automatically?
 
 There might be some cases which can be fixed automatically if the cases are
 simple and the fix obvious. It might be possible to fix some cases that
