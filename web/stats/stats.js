@@ -87,5 +87,3 @@ function init(error, data) {
     init_stat(data, 'wrong_role')
 }
 
-d3.json('/download/area-stats.json', init);
-

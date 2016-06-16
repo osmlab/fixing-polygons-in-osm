@@ -124,5 +124,10 @@ div#content {
         <p>Multipolygon member roles other than empty, <tt>outer</tt> or
         <tt>inner</tt>.</p>
         </div>
+        <script>
+document.addEventListener('DOMContentLoaded', function () {
+    d3.json('http://area.jochentopf.com/download/area-stats.json', init);
+});
+        </script>
     </body>
 </html>

@@ -144,35 +144,37 @@ input::-moz-focus-inner {
         are on the outer ways. You can ignore differences with labels and highway shields, they are caused by different software versions. Move the slider
         handle above the map to position the deviding line.</div>
         <script>
-var map = L.map('map').setView([30, 0], 3);
-L.tileLayer('http://area.jochentopf.com/no_old_mps/{z}/{x}/{y}.png', {
-    'attribution': '© <a href="https://www.openstreetmap.org/copyright/">OpenStreetMap</a> contributors'
-}).addTo(map);
-var overlay = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-var ways = L.tileLayer('http://area.jochentopf.com/old_mp_ways_overlay/{z}/{x}/{y}.png');
-var overlayMaps = {
-    "Mark old style areas": ways
-};
-L.control.layers({}, overlayMaps).addTo(map);
+document.addEventListener('DOMContentLoaded', function () {
+    var map = L.map('map').setView([30, 0], 3);
+    L.tileLayer('http://area.jochentopf.com/no_old_mps/{z}/{x}/{y}.png', {
+        'attribution': '© <a href="https://www.openstreetmap.org/copyright/">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    var overlay = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    var ways = L.tileLayer('http://area.jochentopf.com/old_mp_ways_overlay/{z}/{x}/{y}.png');
+    var overlayMaps = {
+        "Mark old style areas": ways
+    };
+    L.control.layers({}, overlayMaps).addTo(map);
 
-var range = document.getElementById('range');
-var divider = document.getElementById('divider');
+    var range = document.getElementById('range');
+    var divider = document.getElementById('divider');
 
-function clip() {
-    var nw = map.containerPointToLayerPoint([0, 0]),
-        se = map.containerPointToLayerPoint(map.getSize()),
-        clipX = nw.x + (se.x - nw.x) * range.value;
+    function clip() {
+        var nw = map.containerPointToLayerPoint([0, 0]),
+            se = map.containerPointToLayerPoint(map.getSize()),
+            clipX = nw.x + (se.x - nw.x) * range.value;
 
-    overlay.getContainer().style.clip = 'rect(' + [nw.y, clipX, se.y, nw.x].join('px,') + 'px)';
+        overlay.getContainer().style.clip = 'rect(' + [nw.y, clipX, se.y, nw.x].join('px,') + 'px)';
 
-    divider.style.left = (map.getSize().x * range.value + 10) + 'px';
-}
+        divider.style.left = (map.getSize().x * range.value + 10) + 'px';
+    }
 
-range['oninput' in range ? 'oninput' : 'onchange'] = clip;
-map.on('move', clip);
+    range['oninput' in range ? 'oninput' : 'onchange'] = clip;
+    map.on('move', clip);
 
-clip();
-var hash = L.hash(map);
+    clip();
+    var hash = L.hash(map);
+});
         </script>
     </body>
 </html>
