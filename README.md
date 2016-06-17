@@ -34,6 +34,11 @@ it easier to detect mapping errors raising the **quality of the OSM data**.
 * [Some notes about rendering](doc/rendering.md)
 
 
+## QA Tools
+
+* [OSM Inspector](http://tools.geofabrik.de/osmi/?view=areas)
+
+
 ## Contact
 
 If you have any questions or want to contribute in any way, here are some ways
