@@ -1,0 +1,9 @@
+/var/log/tile/replicate.log {
+  compress
+  delaycompress
+  notifempty
+  postrotate
+    /usr/bin/service replicate restart
+  endscript
+}
+
