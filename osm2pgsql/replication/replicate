@@ -65,7 +65,7 @@ do
           echo "Fetched new data from ${prevSequenceNumber} to ${sequenceNumber} into ${file}"
 
           # Apply the changes to the database
-          osm2pgsql_oldpoly --ignore-oldstyle-polygons -d osm2pgsql_noold --number-processes 2 \
+          /usr/local/bin/osm2pgsql_oldpoly --ignore-oldstyle-polygons -d osm2pgsql_noold --number-processes 2 \
               -S /srv/openstreetmap-carto/openstreetmap-carto.style --slim --append \
               --flat-nodes /data/osm2pgsql/noold.nodes ${file}
 

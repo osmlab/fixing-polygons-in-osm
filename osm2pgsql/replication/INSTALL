@@ -5,3 +5,6 @@ sudo install replicate /usr/local/bin/replicate
 sudo install replicate.init /etc/init.d/replicate
 
 sudo install -m 644 replicate.logrotate /etc/logrotate.d/replicate
+
+
+sudo systemctl daemon-reload
