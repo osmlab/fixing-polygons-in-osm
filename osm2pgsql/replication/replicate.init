@@ -1,0 +1,20 @@
+start() {
+  start-stop-daemon --start --chuid robot --background --make-pidfile --pidfile /var/run/replicate.pid --exec /usr/local/bin/replicate
+}
+
+stop() {
+  start-stop-daemon --stop --retry 300 --pidfile /var/run/replicate.pid
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  restart)
+    stop || exit $?
+    start
+    ;;
+esac
