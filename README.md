@@ -2,12 +2,10 @@
 # Fixing Polygons in OSM
 
 There are many different ways (multi)polygons in OpenStreetMap can be mapped
-correctly and there are even more ways in which they can be mapped incorrectly.
-Of the over 220 million (multi)polygons in OSM more than 100,000 contain
-mapping errors of one kind or another and about 250,000 are tagged *old style*
-with tags on the outer ways instead of on the relation making multipolygon
-tagging and processing much more complicated and much more expensive than it
-needs to be.
+correctly and there are even more ways in which they can be mapped incorrectly, 
+using *old style* - with tags on the outer ways instead of on the relation 
+making multipolygon tagging and processing much more complicated and much more 
+expensive than it needs to be.
 
 We are trying to fix all this and this repository is here to organize this
 effort.
@@ -25,6 +23,13 @@ the programs (such as Osm2pgsql and Osmium) converting OSM data into
 multipolygons for rendering or other uses can be simplified. It will also make
 it easier to detect mapping errors raising the **quality of the OSM data**.
 
+## Database and extracts
+
+* http://area.jochentopf.com/ - see "Downloads" section
+ 
+## Stats 
+
+* http://area.jochentopf.com/stats/
 
 ## More Information
 
@@ -36,7 +41,8 @@ it easier to detect mapping errors raising the **quality of the OSM data**.
 
 ## QA Tools
 
-* [OSM Inspector](http://tools.geofabrik.de/osmi/?view=areas)
+* [OSM Inspector](http://tools.geofabrik.de/osmi/?view=areas) - updare frequency?
+* [Map](http://area.jochentopf.com/map/index.html#3/30.00/0.00) - updare frequency?
 
 
 ## Contact
