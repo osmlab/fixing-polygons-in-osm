@@ -2,10 +2,12 @@
 # Fixing Polygons in OSM
 
 There are many different ways (multi)polygons in OpenStreetMap can be mapped
-correctly and there are even more ways in which they can be mapped incorrectly, 
-using *old style* - with tags on the outer ways instead of on the relation 
-making multipolygon tagging and processing much more complicated and much more 
-expensive than it needs to be.
+correctly and there are even more ways in which they can be mapped incorrectly.
+Of the over 220 million (multi)polygons in OSM more than 100,000 contain
+mapping errors of one kind or another and about 250,000 are tagged *old style*
+with tags on the outer ways instead of on the relation making multipolygon
+tagging and processing much more complicated and much more expensive than it
+needs to be.
 
 We are trying to fix all this and this repository is here to organize this
 effort.
