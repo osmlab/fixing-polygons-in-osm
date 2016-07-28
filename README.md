@@ -25,6 +25,13 @@ the programs (such as Osm2pgsql and Osmium) converting OSM data into
 multipolygons for rendering or other uses can be simplified. It will also make
 it easier to detect mapping errors raising the **quality of the OSM data**.
 
+## Database and extracts
+
+* http://area.jochentopf.com/ - see "Downloads" section
+ 
+## Stats 
+
+* http://area.jochentopf.com/stats/
 
 ## More Information
 
@@ -36,7 +43,8 @@ it easier to detect mapping errors raising the **quality of the OSM data**.
 
 ## QA Tools
 
-* [OSM Inspector](http://tools.geofabrik.de/osmi/?view=areas)
+* [OSM Inspector](http://tools.geofabrik.de/osmi/?view=areas) - update frequency?
+* [Map](http://area.jochentopf.com/map/index.html#3/30.00/0.00) - update frequency?
 
 
 ## Contact
