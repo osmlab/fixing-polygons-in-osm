@@ -43,8 +43,8 @@ it easier to detect mapping errors raising the **quality of the OSM data**.
 
 ## QA Tools
 
-* [OSM Inspector](http://tools.geofabrik.de/osmi/?view=areas) - update frequency?
-* [Map](http://area.jochentopf.com/map/index.html#3/30.00/0.00) - update frequency?
+* [OSM Inspector](http://tools.geofabrik.de/osmi/?view=areas) - updated daily
+* [Map](http://area.jochentopf.com/map/index.html#3/30.00/0.00) - updated continuously
 
 
 ## Contact
