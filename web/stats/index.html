@@ -64,7 +64,7 @@ div#content {
         <div class="canvas" id="canvas_from_ways"></div>
 
         <p>The number of (multi)polygons created from closed ways. Tags are not
-        taken into account (except <tt>area=no</tt>, so this also includes
+        taken into account (except <tt>area=no</tt>), so this also includes
         closed ways that are not actually polygons, such as roundabouts or so.</p>
 
         <h2>Nodes in multipolygons</h2>
@@ -77,7 +77,7 @@ div#content {
         <div class="canvas" id="canvas_no_tags_on_relation"></div>
 
         <p>The number of multipolygon relations that have no tags (or only
-        unimportant ones like <tt>created_by</tt> on the relation and have
+        unimportant ones like <tt>created_by</tt>) on the relation and have
         their tags on the outer way(s) instead. This <i>old style</i> tagging
         is deprecated.</p>
 
@@ -85,7 +85,10 @@ div#content {
         <div class="canvas" id="canvas_intersections"></div>
 
         <p>Multipolygon relations or ways with self-intersections of the way
-        or ways involved. These are broken and need to be fixed.</p>
+        or ways involved. These are broken and need to be fixed. The number
+        reported here is the number of crossing segments. Because you always
+        have at least to segments involved in an intersection, the number
+        of affected (multi)polygons is about half this size.</p>
 
         <h2>Errors: Duplicate nodes</h2>
         <div class="canvas" id="canvas_duplicate_nodes"></div>
@@ -122,7 +125,9 @@ div#content {
         <div class="canvas" id="canvas_wrong_role"></div>
 
         <p>Multipolygon member roles other than empty, <tt>outer</tt> or
-        <tt>inner</tt>.</p>
+        <tt>inner</tt> or where the tagged role is not correct one. This
+        reports the number of segments which have a wrong role, not the
+        number of ways or relations. That's why this number is so large.</p>
         </div>
         <script>
 document.addEventListener('DOMContentLoaded', function () {
