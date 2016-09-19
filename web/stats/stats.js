@@ -5,15 +5,11 @@ function init_stat(data, key) {
         h = 400,
         margin = { top: 20, right: 50, bottom: 60, left: 100 };
 
-    data.forEach(function(d) {
-        d[0] = new Date(d[0]);
-    });
-
 /*    var t0 = data[0][0];
         t1 = data[data.length - 1][0];*/
 
     var t0 = new Date('2016-05-30');
-        t1 = new Date('2016-09-01');
+        t1 = new Date('2016-11-01');
 
     var max = d3.max(data, function(d) {
         return d[1][key];
@@ -75,6 +71,10 @@ function init_stat(data, key) {
 }
 
 function init(error, data) {
+    data.forEach(function(d) {
+        d[0] = new Date(d[0]);
+    });
+
     init_stat(data, 'from_relations')
     init_stat(data, 'from_ways')
     init_stat(data, 'nodes')
