@@ -5,11 +5,11 @@ function init_stat(data, key) {
         h = 400,
         margin = { top: 20, right: 50, bottom: 60, left: 100 };
 
-/*    var t0 = data[0][0];
-        t1 = data[data.length - 1][0];*/
+    var t0 = data[0][0];
+        t1 = data[data.length - 1][0];
 
-    var t0 = new Date('2016-05-30');
-        t1 = new Date('2016-11-01');
+/*    var t0 = new Date('2016-05-30');
+        t1 = new Date('2017-01-01');*/
 
     var max = d3.max(data, function(d) {
         return d[1][key];
