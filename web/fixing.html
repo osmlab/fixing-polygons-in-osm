@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Getting Started Fixing Polygons in OSM</title>
+    </head>
+    <body>
+
+        <p><a href="index.html">&rarr; Main page</a></p>
+
+        <h1>Getting Started Fixing Polygons in OSM</h1>
+
+        <p>There are many ways of helping with this effort depending on your
+        skill level and experience with OSM.</p>
+
+        <h2>Maproulette</h2>
+
+        <p>We have created several Maproulette challenges that even a beginner
+        can use.</p>
+
+        <p>Currently there is only one challenge available. We will provide
+        more challenges in the future, but wanted to start out with a simple
+        challenge that is easy to create (for us) and has problems that are
+        easy to fix (for you). Once we gain some experience with the whole
+        process, other challenges will follow.</p>
+
+        <h2>Self-Intersecting Building Outlines</h2>
+
+        <p><b>Difficulty level:</b> Easy</p>
+        <p><b>Challenge started:</b> 2017-02-14</p>
+
+        <p><b>Description:</b> Building outlines made from a single way that
+        intersects itself. Self-intersection creates invalid polygons that should be
+        fixed. Sometimes these are not rendered. Only ways with less than 100 nodes
+        show up.</p>
+
+        <p><b>To fix this:</b> Remove the self-intersection. Use the aerial images to
+        verify that there is a building. Often the intersection is due to a
+        node near (or directly on top of) another node at one of the corners
+        and you can simply merge those nodes.</p>
+
+        <p>The challenge has been split up very roughly by region:</p>
+
+        <ul>
+            <li><a href="http://maproulette.org/map/1478">Africa</a></li>
+            <li><a href="http://maproulette.org/map/1479">Asia</a></li>
+            <li><a href="http://maproulette.org/map/1480">Australia</a></li>
+            <li><a href="http://maproulette.org/map/1481">Europe</a></li>
+            <li><a href="http://maproulette.org/map/1482">India</a></li>
+            <li><a href="http://maproulette.org/map/1483">North America</a></li>
+            <li><a href="http://maproulette.org/map/1484">South America</a></li>
+        </ul>
+
+        <h2>OSM Inspector</h2>
+
+        <p>The <a href="http://tools.geofabrik.de/osmi/?view=areas">Areas
+        View</a> in the OSM Inspector show a lot of different information
+        about broken areas. It is a great tool for the advanced mapper, but
+        can be daunting for the beginner. Old-style multipolygons do not show
+        up in this view, because it would be too much data.</p>
+
+    </body>
+</html>

@@ -28,8 +28,12 @@ it easier to detect mapping errors raising the **quality of the OSM data**.
 ## Database and extracts
 
 * http://area.jochentopf.com/ - see "Downloads" section
- 
-## Stats 
+
+## Start fixing things
+
+Read [this](http://area.jochentopf.com/fixing.html) for instructions.
+
+## Stats
 
 * http://area.jochentopf.com/stats/
 
