@@ -41,13 +41,52 @@
 
         <ul>
             <li><a href="http://maproulette.org/map/1478">Africa</a></li>
-            <li><a href="http://maproulette.org/map/1479">Asia</a></li>
-            <li><a href="http://maproulette.org/map/1480">Australia</a></li>
-            <li><a href="http://maproulette.org/map/1481">Europe</a></li>
-            <li><a href="http://maproulette.org/map/1482">India</a></li>
+            <li><strike><a href="http://maproulette.org/map/1479">Asia</a></strike> (done)</li>
+            <li><strike><a href="http://maproulette.org/map/1480">Australia</a></strike> (done)</li>
+            <li><strike><a href="http://maproulette.org/map/1481">Europe</a></strike> (done)</li>
+            <li><strike><a href="http://maproulette.org/map/1482">India</a></strike> (done)</li>
             <li><a href="http://maproulette.org/map/1483">North America</a></li>
             <li><a href="http://maproulette.org/map/1484">South America</a></li>
         </ul>
+
+        <h2>Self-Intersecting Landuse Outlines</h2>
+
+        <p><b>Difficulty level:</b> Easy</p>
+        <p><b>Challenge started:</b> 2017-02-21</p>
+
+        <p><b>Description:</b> Landuse outlines made from a single way that
+        intersects itself. Self-intersection creates invalid polygons that should be
+        fixed. Sometimes these are not rendered. Only ways with less than 50 nodes
+        show up.</p>
+
+        <p><b>To fix this:</b> Remove the self-intersection. Use the aerial images to
+        verify that the landuse is correctly tagged. Often the intersection is due to a
+        node near (or directly on top of) another node at one of the corners
+        and you can simply remove one of the nodes or merge the nodes.</p>
+
+        <p>Got to <a href="http://maproulette.org/map/1494">the challenge</a>.</p>
+
+        <h2>Open Rings</h2>
+
+        <p><b>Difficulty level:</b> Normal</p>
+        <p><b>Challenge started:</b> 2017-02-21</p>
+
+        <p><b>Description:</b> Multipolygon relations containing an unclosed
+        ring. So the boundary of the (multi)polygon is not closed. These can
+        not be rendered and must be fixed. Only relations with less than 100
+        nodes are show and only if the distance between the open ends is small.</p>
+
+        <p><b>To fix this:</b> Lines show the ring with the markers at the open ends.
+        Look at the aerial images first and determine
+        whether the multipolygon makes sense. Often it can be removed, because
+        there is another (complete) polygon or multipolygon that already does its
+        job. If it can be removed, make sure to remove the multipolygon relation
+        as well as all the member ways that are not needed for something else.
+        If it needs to be kept, close the ring by drawing a new way over
+        the the gap or extend an existing way. Some of these need local
+        knowledge to fix.</p>
+
+        <p>Got to <a href="http://maproulette.org/map/1495">the challenge</a>.</p>
 
         <h2>OSM Inspector</h2>
 
