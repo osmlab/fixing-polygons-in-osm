@@ -81,7 +81,7 @@ div#content {
         their tags on the outer way(s) instead. This <i>old style</i> tagging
         is deprecated.</p>
 
-        <h2>Errors: Intersections</h2>
+        <h2><a id="intersections">Errors: Intersections</a></h2>
         <div class="canvas" id="canvas_intersections"></div>
 
         <p>Multipolygon relations or ways with self-intersections of the way
@@ -90,7 +90,7 @@ div#content {
         have at least two segments involved in an intersection, the number
         of affected (multi)polygons is about half this size.</p>
 
-        <h2>Errors: Duplicate nodes</h2>
+        <h2><a id="duplicate_nodes">Errors: Duplicate nodes</a></h2>
         <div class="canvas" id="canvas_duplicate_nodes"></div>
 
         <p>Multipolygon relations or ways with consecutive indentical nodes
@@ -98,14 +98,14 @@ div#content {
         fixed while post-processing the multipolygon, but it is still better
         to fix them in the data.</p>
 
-        <h2>Errors: Duplicate segments</h2>
+        <h2><a id="duplicate_segments">Errors: Duplicate segments</a></h2>
         <div class="canvas" id="canvas_duplicate_segments"></div>
 
         <p>Number of segments (a segment is a connection between two nodes)
         that appear multiple times in the border of a multipolygon relation
         or way. This is often, but not always wrong.</p>
 
-        <h2>Errors: Open rings</h2>
+        <h2><a id="open_rings">Errors: Open rings</a></h2>
         <div class="canvas" id="canvas_open_rings"></div>
 
         <p>Multipolygon relation where the outer or inner border is not closed.
