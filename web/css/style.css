@@ -1,0 +1,53 @@
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+div#top {
+    background-color: #404080;
+    color: #f0f0f0;
+    height: 20px;
+    padding: 6px;
+}
+
+div#top a {
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+div#top a:hover {
+    text-decoration: underline;
+}
+
+div#content {
+    margin: 10px;
+}
+
+h2 {
+    background-color: #404080;
+    color: #f0f0f0;
+    padding: 4px;
+}
+
+div.job {
+    border: 1px solid #c0c0c0;
+    border-radius: 4px;
+    margin: 10px 10px 0 0;
+    padding-left: 10px;
+}
+
+div.job h3 {
+    background-color: #c0c0c0;
+    margin: 0 0 0 -10px;
+    padding: 4px 10px;
+}
+
+.done {
+    color: #00e000;
+}
+
+.todo {
+    color: #e00000;
+}
+
