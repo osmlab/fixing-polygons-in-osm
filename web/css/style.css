@@ -44,6 +44,10 @@ div.job {
     padding-left: 10px;
 }
 
+div.job-done {
+    opacity: 0.3;
+}
+
 div.job h3 {
     background-color: #c0c0c0;
     margin: 0 0 0 -10px;
