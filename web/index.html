@@ -1,59 +1,76 @@
 <html>
     <head>
         <title>Fixing Polygons in OSM</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
     </head>
     <body>
+        <div id="content">
 
-        <h1>Fixing Polygons in OSM</h1>
+<h1>Fixing Polygons in OSM</h1>
 
-        <p>Read <a href="https://github.com/osmlab/fixing-polygons-in-osm/blob/master/README.md">this to understand what this site is about.</a></p>
+<h2><a href="https://github.com/osmlab/fixing-polygons-in-osm/blob/master/README.md">Background information</a></h2>
 
-        <h2>Start fixing things</h2>
+<p>There are many different ways (multi)polygons in OpenStreetMap can be mapped
+correctly and there are even more ways in which they can be mapped incorrectly.
+Of the over 220 million (multi)polygons in OSM more than 100,000 contain
+mapping errors of one kind or another and about 250,000 are tagged old style
+with tags on the outer ways instead of on the relation making multipolygon
+tagging and processing much more complicated and much more expensive than it
+needs to be.</p>
 
-        <p><a href="fixing.html">Read this to get started fixing things.</a></p>
+<p>We are trying to fix all this and this web site is here to organize this effort.</p>
 
-        <h2>Comparison map</h2>
+<p><a href="https://github.com/osmlab/fixing-polygons-in-osm/blob/master/README.md">Read this</a>
+for many more details.</p>
 
-        <p>To see what the map would look like if we removed <i>old style</i>
-        multipolygons, you can use our <a href="/map/index.html">comparison
-        map</a>.</p>
+<h2><a href="fixing.html">Start fixing things</a></h2>
 
-        <p>There are some areas in central Europe with a lot of (or larger)
-        <i>old style</i> multipolygons. Some other clusters can be seen
-        here:</p>
-        <ul>
-            <li><a href="/map/index.html#8/62.023/29.152">Finland</a></li>
-            <li><a href="/map/index.html#7/32.893/-83.199">Georgia, USA</a></li>
-            <li><a href="/map/index.html#8/40.223/-74.306">New Jersey, USA</a></li>
-            <li><a href="/map/index.html#7/46.008/25.950">Romania</a></li>
-            <li><a href="/map/index.html#9/44.3189/-79.1318">around Toronto, Canada</a></li>
-        </ul>
+<p>There are many ways of helping with this effort depending on your
+OSM skill level and time. <a href="fixing.html">Read this</a> to get you
+started fixing things.</a></p>
 
-        <h2>Statistics</h2>
+<h2><a href="/map/index.html">Old-style multipolygon comparison map</a></h2>
 
-        <p><a href="stats/">Statistics</a></p>
+<p>To see what the map would look like if we removed <i>old style</i>
+multipolygons, you can use our <a href="/map/index.html">comparison
+map</a>.</p>
 
-        <h2>Downloads</h2>
+<p>There are some areas in central Europe with a lot of (or larger)
+<i>old style</i> multipolygons. Some other clusters can be seen
+here:
+<a href="/map/index.html#8/62.023/29.152">Finland</a>,
+<a href="/map/index.html#7/32.893/-83.199">Georgia, USA</a>,
+<a href="/map/index.html#8/40.223/-74.306">New Jersey, USA</a>,
+<a href="/map/index.html#7/46.008/25.950">Romania</a>,
+<a href="/map/index.html#9/44.3189/-79.1318">around Toronto, Canada</a>.
 
-        <p>For those who want to dive deeper into the data we offer several
-        <a href="/download/">downloads</a>. Files are updated daily from
-        current planet. The <a href="/download/timestamp.txt">timestamp file</a>
-        contains the time of the last update in ISO format.</p>
+<h2><a href="/stats/">OSM (Multi)Polygon Statistics</a></h2>
 
-        <dl>
-            <dt><a href="/download/areas.db">areas.db</a></dt>
-            <dd>Spatialite database containing information about all problems found in OSM areas (about 1.2 GByte). Get
-                <a href="https://raw.githubusercontent.com/osmcode/osm-area-tools/master/area-errors.qgs">this QGIS project file</a> and
-                put it in the same directory as the <tt>areas.db</tt> file and run <tt>qgis area-errors.qgs</tt>.</dd>
-            <dt><a href="/download/area-stats.db">area-stats.db</a></dt>
-            <dd>Sqlite database containing daily statistics on areas in OSM (small file).</dd>
-            <dt><a href="/download/old-style.osm.pbf">old-style.osm.pbf</a></dt>
-            <dd>OSM PBF file containing only old-style multipolygons, ie relations
-                tagged only with <tt>type=multipolygon</tt> with all dependant ways and nodes (about 300 MBytes).</dd>
-            <dt><a href="/download/old-style-mp-ways.zip">old-style-mp-ways.zip</a></dt>
-            <dd>A shapefile with all ways contained in the file above, so these are the geometries of all ways that are members
-                of old-style multipolygons. (about 440 MBytes)</dd>
-        </dl>
+<p>The <a href="/stats/">statistics</a> help us track what has been done
+and what still needs to be done.</p>
 
+<h2><a href="/download/">Downloads</a></h2>
+
+<p>For those who want to dive deeper into the data we offer several
+<a href="/download/">downloads</a>. Files are updated daily from the
+current planet. The <a href="/download/timestamp.txt">timestamp file</a>
+contains the time of the last update in ISO format.</p>
+
+<dl>
+<dt><a href="/download/areas.db">areas.db</a></dt>
+<dd>Spatialite database containing information about all problems found in OSM areas (about 1.2 GByte). Get
+    <a href="https://raw.githubusercontent.com/osmcode/osm-area-tools/master/area-errors.qgs">this QGIS project file</a> and
+    put it in the same directory as the <tt>areas.db</tt> file and run <tt>qgis area-errors.qgs</tt>.</dd>
+<dt><a href="/download/area-stats.db">area-stats.db</a></dt>
+<dd>Sqlite database containing daily statistics on areas in OSM (small file).</dd>
+<dt><a href="/download/old-style.osm.pbf">old-style.osm.pbf</a></dt>
+<dd>OSM PBF file containing only old-style multipolygons, ie relations
+    tagged only with <tt>type=multipolygon</tt> with all dependant ways and nodes (about 270 MBytes).</dd>
+<dt><a href="/download/old-style-mp-ways.zip">old-style-mp-ways.zip</a></dt>
+<dd>A shapefile with all ways contained in the file above, so these are the geometries of all ways that are members
+    of old-style multipolygons. (about 410 MBytes)</dd>
+</dl>
+
+        </div>
     </body>
 </html>

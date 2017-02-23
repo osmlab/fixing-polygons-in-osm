@@ -24,10 +24,17 @@ div#content {
     margin: 10px;
 }
 
-h2 {
+h1 {
+    color: #404080;
+    font-size: 260%;
+    text-align: center;
+}
+
+h2, h2 a {
     background-color: #404080;
     color: #f0f0f0;
     padding: 4px;
+    text-decoration: none;
 }
 
 div.job {
