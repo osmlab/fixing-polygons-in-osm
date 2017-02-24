@@ -12,6 +12,12 @@
 <p>There are many ways of helping with this effort depending on your
 OSM skill level and time.</p>
 
+<p>The priority for the following jobs is specified according to the visibility
+of the problems on the map: The priority "High" is for larger (multi)polygons
+such as forests that can possibly affect a large map area. "Low" is used for
+problems that are invisible or nearly invisible on usual maps. "Medium" is for
+everything in between, such as buildings, etc.</p>
+
 <h2 id="maproulette">Using Maproulette</h2>
 
 <p>We are creating several Maproulette challenges for different
@@ -62,6 +68,26 @@ the more complex problems.</p>
     knowledge to fix.</p>
 
     <p>Go to <a href="http://maproulette.org/map/1495">the challenge</a> (<span class="todo">todo</span>).</p>
+</div>
+
+<div class="job">
+    <h3 id="wrong-role-inner">Wrong role (should be inner)</h3>
+
+    <p><b>Difficulty level:</b> Normal</p>
+    <p><b>Priority:</b> Low</p>
+    <p><b>Challenge started:</b> 2017-02-24</p>
+
+    <p><b>Description:</b> Ways that are in a multipolygon relation with the
+    wrong role. Only roles 'inner' and 'outer' are allowed and these ways
+    should have role 'inner'.</p>
+
+    <p><b>To fix this:</b> This is a way that is in a multipolygon relation and
+    the computer thinks it should have the role 'inner'. Verify that this is
+    correct and set the right role. False-positives are possible. Sometimes the
+    role contains some useful information that can be moved into a tag. Ways
+    are often in multiple relations, make sure you fix the right one!</p>
+
+    <p>Go to <a href="http://maproulette.org/map/1496">the challenge</a> (<span class="todo">todo</span>).</p>
 </div>
 
 <div class="job job-done">
