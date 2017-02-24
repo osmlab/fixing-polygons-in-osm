@@ -151,4 +151,8 @@ add_executable(area_ways area_ways.cpp)
 target_link_libraries(area_ways ${OSMIUM_LIBRARIES})
 install(TARGETS area_ways DESTINATION bin)
 
+add_executable(area_ways_relid area_ways_relid.cpp)
+target_link_libraries(area_ways_relid ${OSMIUM_LIBRARIES})
+install(TARGETS area_ways_relid DESTINATION bin)
+
 #-----------------------------------------------------------------------------
