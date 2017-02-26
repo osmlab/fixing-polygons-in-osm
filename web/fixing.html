@@ -26,26 +26,6 @@ by piece. We are starting with simpler ones and build up towards
 the more complex problems.</p>
 
 <div class="job">
-    <h3 id="self-intersecting-landuse-outlines">Self-Intersecting Landuse Outlines</h3>
-
-    <p><b>Difficulty level:</b> Easy</p>
-    <p><b>Priority:</b> High</p>
-    <p><b>Challenge started:</b> 2017-02-21</p>
-
-    <p><b>Description:</b> Landuse outlines made from a single way that
-    intersects itself. Self-intersection creates invalid polygons that should be
-    fixed. Sometimes these are not rendered. Only ways with less than 50 nodes
-    show up.</p>
-
-    <p><b>To fix this:</b> Remove the self-intersection. Use the aerial images to
-    verify that the landuse is correctly tagged. Often the intersection is due to a
-    node near (or directly on top of) another node at one of the corners
-    and you can simply remove one of the nodes or merge the nodes.</p>
-
-    <p>Go to <a href="http://maproulette.org/map/1494">the challenge</a> (<span class="todo">todo</span>).</p>
-</div>
-
-<div class="job">
     <h3 id="open-rings">Open Rings</h3>
 
     <p><b>Difficulty level:</b> Normal</p>
@@ -96,6 +76,7 @@ the more complex problems.</p>
     <p><b>Difficulty level:</b> Easy</p>
     <p><b>Priority:</b> Medium</p>
     <p><b>Challenge started:</b> 2017-02-14</p>
+    <p><b>Challenge finished:</b> 2017-02-23</p>
 
     <p><b>Description:</b> Building outlines made from a single way that
     intersects itself. Self-intersection creates invalid polygons that should be
@@ -118,6 +99,27 @@ the more complex problems.</p>
     <li><strike><a href="http://maproulette.org/map/1483">North America</a></strike> (<span class="done">&#10004;</span> done)</li>
     <li><strike><a href="http://maproulette.org/map/1484">South America</a></strike> (<span class="done">&#10004;</span> done)</li>
     </ul>
+</div>
+
+<div class="job job-done">
+    <h3 id="self-intersecting-landuse-outlines">Self-Intersecting Landuse Outlines</h3>
+
+    <p><b>Difficulty level:</b> Easy</p>
+    <p><b>Priority:</b> High</p>
+    <p><b>Challenge started:</b> 2017-02-21</p>
+    <p><b>Challenge finished:</b> 2017-02-26</p>
+
+    <p><b>Description:</b> Landuse outlines made from a single way that
+    intersects itself. Self-intersection creates invalid polygons that should be
+    fixed. Sometimes these are not rendered. Only ways with less than 50 nodes
+    show up.</p>
+
+    <p><b>To fix this:</b> Remove the self-intersection. Use the aerial images to
+    verify that the landuse is correctly tagged. Often the intersection is due to a
+    node near (or directly on top of) another node at one of the corners
+    and you can simply remove one of the nodes or merge the nodes.</p>
+
+    <p>Go to <a href="http://maproulette.org/map/1494">the challenge</a> (<span class="todo">todo</span>).</p>
 </div>
 
 <h2 id="osm-inspector">Using the OSM Inspector</h2>
