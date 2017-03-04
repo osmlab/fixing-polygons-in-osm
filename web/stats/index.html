@@ -31,26 +31,26 @@
 
         <p>This page shows several statistics related to multipolygons over time.</p>
 
-        <h2>Multipolygons created from relations</h2>
+        <h2 id="multipolygons_created_from_relations">Multipolygons created from relations</h2>
         <div class="canvas" id="canvas_from_relations"></div>
 
         <p>The number of multipolygons created from relations with
         <tt>type=multipolygon</tt> or <tt>type=boundary</tt>.</p>
 
-        <h2>Multipolygons created from closed ways</h2>
+        <h2 id="multipolygons_created_from_closed_ways">Multipolygons created from closed ways</h2>
         <div class="canvas" id="canvas_from_ways"></div>
 
         <p>The number of (multi)polygons created from closed ways. Tags are not
         taken into account (except <tt>area=no</tt>), so this also includes
         closed ways that are not actually polygons, such as roundabouts or so.</p>
 
-        <h2>Nodes in multipolygons</h2>
+        <h2 id="nodes_in_multipolygons">Nodes in multipolygons</h2>
         <div class="canvas" id="canvas_nodes"></div>
 
         <p>The total number of nodes in all multipolygons (created from
         relations or ways).</p>
 
-        <h2>Old style multipolygons</h2>
+        <h2 id="old_style_multipolygons">Old style multipolygons</h2>
         <div class="canvas" id="canvas_no_tags_on_relation"></div>
 
         <p>The number of multipolygon relations that have no tags (or only
@@ -58,7 +58,7 @@
         their tags on the outer way(s) instead. This <i>old style</i> tagging
         is deprecated.</p>
 
-        <h2><a id="intersections">Errors: Intersections</a></h2>
+        <h2 id="intersections">Errors: Intersections</h2>
         <div class="canvas" id="canvas_intersections"></div>
 
         <p>Multipolygon relations or ways with self-intersections of the way
@@ -67,7 +67,7 @@
         have at least two segments involved in an intersection, the number
         of affected (multi)polygons is about half this size.</p>
 
-        <h2><a id="duplicate_nodes">Errors: Duplicate nodes</a></h2>
+        <h2 id="duplicate_nodes">Errors: Duplicate nodes</h2>
         <div class="canvas" id="canvas_duplicate_nodes"></div>
 
         <p>Multipolygon relations or ways with consecutive indentical nodes
@@ -75,20 +75,20 @@
         fixed while post-processing the multipolygon, but it is still better
         to fix them in the data.</p>
 
-        <h2><a id="duplicate_segments">Errors: Duplicate segments</a></h2>
+        <h2 id="duplicate_segments">Errors: Duplicate segments</h2>
         <div class="canvas" id="canvas_duplicate_segments"></div>
 
         <p>Number of segments (a segment is a connection between two nodes)
         that appear multiple times in the border of a multipolygon relation
         or way. This is often, but not always wrong.</p>
 
-        <h2><a id="open_rings">Errors: Open rings</a></h2>
+        <h2 id="open_rings">Errors: Open rings</h2>
         <div class="canvas" id="canvas_open_rings"></div>
 
         <p>Multipolygon relation where the outer or inner border is not closed.
         This is always an error and needs to be fixed.</p>
 
-        <h2>Errors: Inner rings with same tags as outer rings</h2>
+        <h2 id="inner_with_same_tags">Errors: Inner rings with same tags as outer rings</h2>
         <div class="canvas" id="canvas_inner_with_same_tags"></div>
 
         <p>Some multipolygon relations have the same tags on outer and inner
@@ -98,7 +98,7 @@
         rings either have no tags or their own tags if they constitute an
         object in their own right.</p>
 
-        <h2>Errors: Wrong role</h2>
+        <h2 id="wrong_role">Errors: Wrong role</h2>
         <div class="canvas" id="canvas_wrong_role"></div>
 
         <p>Multipolygon member roles other than empty, <tt>outer</tt> or
