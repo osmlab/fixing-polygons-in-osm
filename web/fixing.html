@@ -26,28 +26,29 @@ by piece. We are starting with simpler ones and build up towards
 the more complex problems.</p>
 
 <div class="job">
-    <h3 id="open-rings">Open Rings</h3>
+    <h3 id="self-intersecting-building-outlines">Self-Intersecting Polygon Ways</h3>
 
     <p><b>Difficulty level:</b> Normal</p>
     <p><b>Priority:</b> Medium</p>
-    <p><b>Challenge started:</b> 2017-02-21</p>
+    <p><b>Challenge started:</b> 2017-03-04</p>
 
-    <p><b>Description:</b> Multipolygon relations containing an unclosed
-    ring. So the boundary of the (multi)polygon is not closed. These can
-    not be rendered and must be fixed. Only relations with less than 100
-    nodes are show and only if the distance between the open ends is small.</p>
+    <p><b>Description:</b> Building, landuse, or natural polygon outlines made
+    from a single way that intersects itself. Self-intersection creates invalid
+    polygons that should be fixed. Sometimes these are not rendered.</p>
 
-    <p><b>To fix this:</b> Lines show the ring with the markers at the open ends.
-    Look at the aerial images first and determine
-    whether the multipolygon makes sense. Often it can be removed, because
-    there is another (complete) polygon or multipolygon that already does its
-    job. If it can be removed, make sure to remove the multipolygon relation
-    as well as all the member ways that are not needed for something else.
-    If it needs to be kept, close the ring by drawing a new way over
-    the the gap or extend an existing way. Some of these need local
-    knowledge to fix.</p>
+    <p><b>To fix this:</b> Remove the self-intersection. Use the aerial images
+    to verify that the way is tagged correctly. Often the intersection is due
+    to a node near (or directly on top of) another node at one of the corners
+    and you can simply remove one or merge those nodes.</p>
 
-    <p>Go to <a href="http://maproulette.org/map/1495">the challenge</a> (<span class="todo">todo</span>).</p>
+    <p>The challenge has been split up very roughly by region:</p>
+
+    <ul>
+    <li><a href="http://maproulette.org/map/1504">Africa</a></li>
+    <li><a href="http://maproulette.org/map/1505">Americas</a></li>
+    <li><a href="http://maproulette.org/map/1506">Asia + Australia</a></li>
+    <li><a href="http://maproulette.org/map/1503">Europe</a></li>
+    </ul>
 </div>
 
 <div class="job">
@@ -120,6 +121,32 @@ the more complex problems.</p>
     and you can simply remove one of the nodes or merge the nodes.</p>
 
     <p>Go to <a href="http://maproulette.org/map/1494">the challenge</a> (<span class="todo">todo</span>).</p>
+</div>
+
+<div class="job job-done">
+    <h3 id="open-rings">Open Rings (<span class="done">&#10004;</span> job is done)</h3>
+
+    <p><b>Difficulty level:</b> Normal</p>
+    <p><b>Priority:</b> Medium</p>
+    <p><b>Challenge started:</b> 2017-02-21</p>
+    <p><b>Challenge finished:</b> 2017-03-04</p>
+
+    <p><b>Description:</b> Multipolygon relations containing an unclosed
+    ring. So the boundary of the (multi)polygon is not closed. These can
+    not be rendered and must be fixed. Only relations with less than 100
+    nodes are show and only if the distance between the open ends is small.</p>
+
+    <p><b>To fix this:</b> Lines show the ring with the markers at the open ends.
+    Look at the aerial images first and determine
+    whether the multipolygon makes sense. Often it can be removed, because
+    there is another (complete) polygon or multipolygon that already does its
+    job. If it can be removed, make sure to remove the multipolygon relation
+    as well as all the member ways that are not needed for something else.
+    If it needs to be kept, close the ring by drawing a new way over
+    the the gap or extend an existing way. Some of these need local
+    knowledge to fix.</p>
+
+    <p>Go to <a href="http://maproulette.org/map/1495">the challenge</a> (<span class="todo">todo</span>).</p>
 </div>
 
 <h2 id="osm-inspector">Using the OSM Inspector</h2>
