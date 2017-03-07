@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <title>Completed Maproulette Challenges</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    </head>
+    <body>
+        <div id="top"><a href="/">&nwarr; Fixing Polygons in OSM</a></div>
+        <div id="content">
+
+<p>Several <a href="fixing.html#maproulette">Maproulette challenges</a> have
+already been done. They are linked here for reference. But there is <a
+href="fixing.html">more to do</a>.</p>
+
+<div class="job job-done">
+    <h3 id="self-intersecting-building-outlines">Self-Intersecting Building Outlines (<span class="done">&#10004;</span> job is done)</h3>
+
+    <p><b>Difficulty level:</b> Easy</p>
+    <p><b>Priority:</b> Medium</p>
+    <p><b>Challenge started:</b> 2017-02-14</p>
+    <p><b>Challenge finished:</b> 2017-02-23</p>
+
+    <p><b>Description:</b> Building outlines made from a single way that
+    intersects itself. Self-intersection creates invalid polygons that should be
+    fixed. Sometimes these are not rendered. Only ways with less than 100 nodes
+    show up.</p>
+
+    <p><b>To fix this:</b> Remove the self-intersection. Use the aerial images to
+    verify that there is a building. Often the intersection is due to a
+    node near (or directly on top of) another node at one of the corners
+    and you can simply merge those nodes.</p>
+
+    <p>The challenge has been split up very roughly by region:</p>
+
+    <ul>
+    <li><strike><a href="http://maproulette.org/map/1478">Africa</a></strike> (<span class="done">&#10004;</span> done)</li>
+    <li><strike><a href="http://maproulette.org/map/1479">Asia</a></strike> (<span class="done">&#10004;</span> done)</li>
+    <li><strike><a href="http://maproulette.org/map/1480">Australia</a></strike> (<span class="done">&#10004;</span> done)</li>
+    <li><strike><a href="http://maproulette.org/map/1481">Europe</a></strike> (<span class="done">&#10004;</span> done)</li>
+    <li><strike><a href="http://maproulette.org/map/1482">India</a></strike> (<span class="done">&#10004;</span> done)</li>
+    <li><strike><a href="http://maproulette.org/map/1483">North America</a></strike> (<span class="done">&#10004;</span> done)</li>
+    <li><strike><a href="http://maproulette.org/map/1484">South America</a></strike> (<span class="done">&#10004;</span> done)</li>
+    </ul>
+</div>
+
+<div class="job job-done">
+    <h3 id="self-intersecting-landuse-outlines">Self-Intersecting Landuse Outlines (<span class="done">&#10004;</span> job is done)</h3>
+
+    <p><b>Difficulty level:</b> Easy</p>
+    <p><b>Priority:</b> High</p>
+    <p><b>Challenge started:</b> 2017-02-21</p>
+    <p><b>Challenge finished:</b> 2017-02-26</p>
+
+    <p><b>Description:</b> Landuse outlines made from a single way that
+    intersects itself. Self-intersection creates invalid polygons that should be
+    fixed. Sometimes these are not rendered. Only ways with less than 50 nodes
+    show up.</p>
+
+    <p><b>To fix this:</b> Remove the self-intersection. Use the aerial images to
+    verify that the landuse is correctly tagged. Often the intersection is due to a
+    node near (or directly on top of) another node at one of the corners
+    and you can simply remove one of the nodes or merge the nodes.</p>
+
+    <p>Go to <a href="http://maproulette.org/map/1494">the challenge</a> (<span class="todo">todo</span>).</p>
+</div>
+
+<div class="job job-done">
+    <h3 id="open-rings">Open Rings (<span class="done">&#10004;</span> job is done)</h3>
+
+    <p><b>Difficulty level:</b> Normal</p>
+    <p><b>Priority:</b> Medium</p>
+    <p><b>Challenge started:</b> 2017-02-21</p>
+    <p><b>Challenge finished:</b> 2017-03-04</p>
+
+    <p><b>Description:</b> Multipolygon relations containing an unclosed
+    ring. So the boundary of the (multi)polygon is not closed. These can
+    not be rendered and must be fixed. Only relations with less than 100
+    nodes are show and only if the distance between the open ends is small.</p>
+
+    <p><b>To fix this:</b> Lines show the ring with the markers at the open ends.
+    Look at the aerial images first and determine
+    whether the multipolygon makes sense. Often it can be removed, because
+    there is another (complete) polygon or multipolygon that already does its
+    job. If it can be removed, make sure to remove the multipolygon relation
+    as well as all the member ways that are not needed for something else.
+    If it needs to be kept, close the ring by drawing a new way over
+    the the gap or extend an existing way. Some of these need local
+    knowledge to fix.</p>
+
+    <p>Go to <a href="http://maproulette.org/map/1495">the challenge</a> (<span class="todo">todo</span>).</p>
+</div>
+
+<div class="job job-done">
+    <h3 id="wrong-role-inner">Wrong role (should be inner) (<span class="done">&#10004;</span> job is done)</h3>
+
+    <p><b>Difficulty level:</b> Normal</p>
+    <p><b>Priority:</b> Low</p>
+    <p><b>Challenge started:</b> 2017-02-24</p>
+    <p><b>Challenge finished:</b> 2017-03-07</p>
+
+    <p><b>Description:</b> Ways that are in a multipolygon relation with the
+    wrong role. Only roles 'inner' and 'outer' are allowed and these ways
+    should have role 'inner'.</p>
+
+    <p><b>To fix this:</b> This is a way that is in a multipolygon relation and
+    the computer thinks it should have the role 'inner'. Verify that this is
+    correct and set the right role. False-positives are possible. Sometimes the
+    role contains some useful information that can be moved into a tag. Ways
+    are often in multiple relations, make sure you fix the right one!</p>
+
+    <p>Go to <a href="http://maproulette.org/map/1496">the challenge</a> (<span class="todo">todo</span>).</p>
+</div>
+
+        </div>
+    </body>
+</html>
