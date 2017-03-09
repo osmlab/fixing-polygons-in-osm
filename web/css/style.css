@@ -30,10 +30,14 @@ h1 {
     text-align: center;
 }
 
-h2, h2 a {
+h2 {
     background-color: #404080;
     color: #f0f0f0;
     padding: 4px;
+}
+
+h2 a {
+    color: #f0f0f0;
     text-decoration: none;
 }
 
