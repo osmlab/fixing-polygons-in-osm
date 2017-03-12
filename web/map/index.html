@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var overlayMaps = {
         "Mark old style areas": ways
     };
+    map.addLayer(ways);
     L.control.layers({}, overlayMaps).addTo(map);
 
     var range = document.getElementById('range');
