@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <title>Fixing old-style multipolygons with JOSM</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    </head>
+    <body>
+        <div id="top"><a href="/">&nwarr; Fixing Polygons in OSM</a></div>
+        <div id="content">
+
+<h1>Fixing old-style multipolygons with JOSM</h1>
+
+<p>Fixing old-style multipolygons isn't very difficult with JOSM. Here
+is a step-by-step description on what to do.</p>
+
+<h2>1. Find a suitable area to work on</h2>
+
+<p>First you need an area to work on. You can look at the <a
+href="/map/">comparison map</a>, pick out an area with lots of old-style
+multipolygons and load it into JOSM.</p>
+
+<h2>2. Fix the multipolygons</h2>
+
+<div class="img"><img src="/img/josm-relations-list.png"/><br/>
+<i>Old-style multipolygons will show up in the relations list without a
+type (like the first three in the image above). New-style multipolygons will
+(most of the time) show up with the type in parentheses, like the highlighted
+one in the image.</i></div>
+
+<p>Choose a multipolygon in the "Relations" list and select it (Choose "Select
+relation" in the context menu). Zoom to the selection (in the "Selection" list,
+choose "Zoom to selection" in the context menu). Download the area shown. You
+now have the full relation with current data and all its context in JOSM.</p>
+
+<p>Now look at the relation and its members and fix it.</p>
+
+<p>Often you can use JOSM's built-in function "Update multipolygon"
+(Ctrl+Shift+B) in the "Tools" menu. This will move tags from the outer way to
+the relation. But it will not work with old-style multipolygons with multiple
+outer ways. Select one of the ways of the multipolygon first to use this.</p>
+
+<p>If the multipolygon only has a single outer way, you might want to simply
+leave the tags on the way and delete the multipolygon relation.</p>
+
+<p>After you have fixed the multipolygon, move on to the next one. If you are
+in an area with lots of multipolygons, chances are each time you load the
+context of one, more old-style multipolygons will be loaded, too. This way
+you can move quickly through an area.</p>
+
+<h2>3. Uploading the changes</h2>
+
+<p>When you are uploading the changes, please use a changeset comment that
+contains the words "old-style multipolygon". That way we can track this work
+better.</p>
+
+<h2>Tip: Using Overpass to load old-style multipolygons into JOSM</h2>
+
+<div class="img"><img src="/img/overpass-josm.png"/><br/>
+<i>"Download from Overpass API" dialog in JOSM.</i></div>
+
+<p>You can also start by using an Overpass queries to find (most) old-style
+multipolygons. In JOSM go to the "File" menu and choose "Download from Overpass
+API", enter the following query which finds all multipolygon relations without
+tags and choose an area.</p>
+
+<p><pre>
+relation({{bbox}})
+  [type=multipolygon]
+  (if:count_tags()==1);
+(._;&gt;;);
+out meta;
+</pre></p>
+
+Or you can use this somewhat more complete query which also finds relations
+with some more tags:
+
+<p><pre>
+(
+  relation["type"="multipolygon"]({{bbox}}) (if:count_tags()==1);
+  relation["type"="multipolygon"]["created_by"]({{bbox}}) (if:count_tags()==2);
+  relation["type"="multipolygon"]["source"]({{bbox}}) (if:count_tags()==2);
+  relation["type"="multipolygon"]["note"]({{bbox}}) (if:count_tags()==2);
+);
+(._;&gt;;);
+out;
+</pre></p>
+
+<h2>Tip: Using Filters in JOSM</h2>
+
+<p>A JOSM filter containing</p>
+
+<p><pre>
+type:relation type=multipolygon tags:1
+</pre></p>
+
+will match all multipolygon relations with only the single tag
+<tt>type=multipolygon</tt>, which is most of the old-style multipolygons.</p>
+
+<p>Activate the "Enable filter" and "Invers filter" checkboxes to hide
+everything but those multipolygons.</p>
+
+<h2>Tip: Adding overlay from comparison map to JOSM</h2>
+
+<p>The <a href="/map/">comparison map</a> has an overlay showing all old-style
+multipolygons. You can easily add this overlay to JOSM:</p>
+
+<p>Go to the "Imagery" menu and choose "Imagery preferences". Next to the
+"Selected entries" list, click on the button labelled "+ TMS". Enter</p>
+<p><pre>http://area.jochentopf.com/old_mp_ways_overlay/{zoom}/{x}/{y}.png</pre></p>
+<p>in the URL field. Set the max zoom level to 18 and enter a name such as
+"Old-style multipolygons". Click OK twice to close the dialogs. You should
+now have another entry in "Imagery" menu that activates the layer.</p>
+
+<p>The layer is transparent so you can use it over one of the satellite
+image layers.</p>
+
+
+<h2>Caution!</h2>
+
+<p><b>Do not just blindly update everything!</b> Look at the tags on the
+relation and on all member ways, look at multipolygons around it, look at the
+satellite images, check that the roles are set correctly and use the validator.
+Especially with very old data, there is often a chance to update some tags,
+too. Or there might be geometrical problems, or the data might be from an old
+import and is just outdated. As always with editing OSM data: Take care to do
+the right thing and use your judgement.</p>
+
+<p>Do you have any other tips for this page? Or a different way of editing the
+data? Don't like the description here? <a
+href="https://github.com/osmlab/fixing-polygons-in-osm/issues/new">Open an
+issue</a> and tell us about it.</p>
+
+        </div>
+    </body>
+</html>

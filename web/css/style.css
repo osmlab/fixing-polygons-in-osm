@@ -24,6 +24,24 @@ div#content {
     margin: 10px;
 }
 
+pre {
+    background-color: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    padding: 2px 4px;
+}
+
+div.img {
+    margin: 0 0 10px 0;
+    background-color: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    padding: 2px 4px;
+    width: 600px;
+    float: right;
+    text-align: center;
+}
+
 h1 {
     color: #404080;
     font-size: 260%;
@@ -34,6 +52,7 @@ h2 {
     background-color: #404080;
     color: #f0f0f0;
     padding: 4px;
+    clear: both;
 }
 
 h2 a {
