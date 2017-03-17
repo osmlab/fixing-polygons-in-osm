@@ -1,9 +1,9 @@
 
 function init_stat(data, key) {
     var radius = 1.5,
-        w = 450,
+        w = 600,
         h = 400,
-        margin = { top: 20, right: 50, bottom: 60, left: 100 };
+        margin = { top: 20, right: 20, bottom: 40, left: 100 };
 
     var t0 = data[0][0];
         t1 = data[data.length - 1][0];
@@ -21,9 +21,8 @@ function init_stat(data, key) {
 
     var axis_x = d3.svg.axis()
                     .scale(scale_x)
-                    .orient('bottom')
-                    .ticks(4)
-                    .tickFormat(d3.time.format('%b %Y'));
+                    .tickSize(-(h + 10))
+                    .orient('bottom');
 
     var scale_y = d3.scale.linear()
                     .domain([0, max])
@@ -31,6 +30,7 @@ function init_stat(data, key) {
 
     var axis_y = d3.svg.axis()
                     .scale(scale_y)
+                    .tickSize(-(w + 10))
                     .orient('left');
 
     var chart = d3.select('#canvas_' + key).append('svg')
@@ -44,7 +44,7 @@ function init_stat(data, key) {
                                 .attr('height', h + 10)
                                 .attr('x', -5)
                                 .attr('y', -5)
-                                .style('fill', 'white')
+                                .style('fill', '#f0f0f0')
                                 .style('stroke', '#d0d0c8')
                         });
 
@@ -58,6 +58,19 @@ function init_stat(data, key) {
         .attr('transform', 'translate(-5, 0)')
         .call(axis_y);
 
+    var line = d3.svg.line()
+        .interpolate("linear")
+        .x(function(d) { return scale_x(d[0]); })
+        .y(function(d) { return scale_y(d[1][key]); });
+
+    chart.selectAll('.line')
+        .data(["foo"])
+        .enter()
+        .append('path')
+            .datum(data)
+            .attr("class", "line")
+            .attr("d", line);
+
     chart.selectAll('circle')
         .data(data)
         .enter()
@@ -67,7 +80,6 @@ function init_stat(data, key) {
             .attr('cy', function(d) { return scale_y(d[1][key]); })
             .attr('r', radius)
             .attr('title', function(d, i) { return d3.time.format('%Y-%m-%d')(d[0]) + ': ' + d[1][key]; });
-
 }
 
 function init(error, data) {
