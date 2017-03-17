@@ -62,7 +62,7 @@ multipolygon with just one outer ring.
 Read the [background documentation](background.md) for all the details.
 
 
-## Are we talking about areas created from closed ways, too, or just multipolgyon relations?
+## Are we talking about areas created from closed ways, too, or just multipolygon relations?
 
 Both. Only multipolygon relations have the problem with the *old style* tagging,
 but the problems with invalid geometries also affect closed ways.

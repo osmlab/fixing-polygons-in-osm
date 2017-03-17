@@ -16,20 +16,36 @@
 
 <h1>Fixing Polygons in OSM</h1>
 
-<h2><img src="/img/info-64.png" width="16" height="16"/> <a href="https://github.com/osmlab/fixing-polygons-in-osm/blob/master/README.md">Background information</a></h2>
-
 <p>There are many different ways (multi)polygons in OpenStreetMap can be mapped
 correctly and there are even more ways in which they can be mapped incorrectly.
-Of the over 220 million (multi)polygons in OSM more than 100,000 contain
-mapping errors of one kind or another and about 250,000 are tagged old style
-with tags on the outer ways instead of on the relation making multipolygon
-tagging and processing much more complicated and much more expensive than it
-needs to be.</p>
+Of the over 260 million (multi)polygons in OSM more than 100,000 contain
+mapping errors of one kind or another and about 250,000 are tagged <i>old
+style</i> (with tags on the outer ways instead of on the relation) making
+multipolygon tagging and processing much more complicated and much more
+expensive than it needs to be. But this is not only about multipolygon
+relations, it is also about polygons created from closed ways. They also can
+and do have errors.</p>
 
 <p>We are trying to fix all this and this web site is here to organize this effort.</p>
 
-<p><a href="https://github.com/osmlab/fixing-polygons-in-osm/blob/master/README.md">Read this</a>
-for many more details.</p>
+<p>When we have finished this effort, <b>mapping will be easier</b>, because
+there will be only one canonical way of tagging multipolygons. Editors can take
+this into account and help mappers in better ways. And it will make <b>using
+the data easier and faster</b> because the programs (such as Osm2pgsql and
+Osmium) converting OSM data into multipolygons for rendering or other uses can
+be simplified. It will also make it easier to detect mapping errors <b>raising
+the quality of the OSM data</b>.</p>
+
+<h2><img src="/img/info-64.png" width="16" height="16"/> <a href="https://github.com/osmlab/fixing-polygons-in-osm/blob/master/README.md">Background information</a></h2>
+
+<p>Read this for many more details:</p>
+
+<ul>
+    <li><a href="https://github.com/osmlab/fixing-polygons-in-osm/blob/master/doc/background.md">Background on (multi)polygons</a></li>
+    <li><a href="https://github.com/osmlab/fixing-polygons-in-osm/blob/master/doc/problems.md">Typical problems with OSM multipolygons</a></li>
+    <li><a href="https://github.com/osmlab/fixing-polygons-in-osm/blob/master/doc/faq.md">Frequently Asked Questions (FAQ)</a></li>
+    <li><a href="https://github.com/osmlab/fixing-polygons-in-osm/blob/master/doc/rendering.md">Some notes about rendering</a></li>
+</ul>
 
 <h2><img src="/img/fix-64.png" width="16" height="16"/> <a href="fixing.html">Start fixing things</a></h2>
 
