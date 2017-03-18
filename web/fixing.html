@@ -25,7 +25,40 @@ skill levels, regions, and problems. They will be rolled out piece
 by piece. We are starting with simpler ones and build up towards
 the more complex problems.</p>
 
-<p><b>No current challenge. More will be available soon!</b></p>
+<div class="job">
+    <h3 id="duplicate-segments-in-closed-ways">Duplicate segments in closed ways</h3>
+
+    <p><b>Difficulty level:</b> Normal</p>
+    <p><b>Priority:</b> Medium</p>
+    <p><b>Challenge started:</b> 2017-03-18</p>
+
+    <p><b>Description:</b> There are many cases of <i>duplicate segments</i> where a closed way doubles back on itself. Usually they are left over from way back before we had multipolygons or they are from mappers who don't know about multipolygon relations and are creating several outer or inner rings by "connecting" those rings with parts of a way. There are two common cases:</p>
+    <ul>
+        <li>Two or more outer rings connected</li>
+        <li>Outer and inner rings connected</li>
+    </ul>
+    <p>Other cases than this are possible, too.</p>
+
+    <p>Here is an illustration of the first case, where outer rings connect to other outer rings. This is either fixed by having separate closed ways (if the ways can stand by themselves, for instance if they are just forest polygons), or by creating a proper multipolygon relation (if the ways can't stand by themselves, for instance when they form two parts of an area with a common name). You have to look at the tags to decide which case you have.</p>
+    <img src="/img/connected-polygons.png"/>
+
+    <p>And here is an illustration of the second case, where outer rings connect to inner rings. This is usually fixed by creating a proper multipolygon relation.</p>
+    <img src="/img/fake-inner.png"/>
+
+    <p><b>To fix this:</b> The segment(s) connecting two different rings of a multipolygon are shown. Remove the connecting segment(s) and create a proper multipolygon or separate (closed way) polygons. In JOSM "Tools/Create overlapping Areas" and "Tools/Create multipolygon" can often be used to do this quickly.</p>
+
+    <p>The challenge has been split up very roughly by region:</p>
+
+    <ul>
+    <li><a href="http://maproulette.org/map/2414">Africa</a></li>
+    <li><a href="http://maproulette.org/map/2415">Asia + Australia</a></li>
+    <li><a href="http://maproulette.org/map/2416">Europe</a></li>
+    <li><a href="http://maproulette.org/map/2417">North America</a></li>
+    <li><a href="http://maproulette.org/map/2419">South America</a></li>
+    <li><a href="http://maproulette.org/map/2420">Korea</a></li>
+    </ul>
+</div>
+
 
 <p>You can <a href="fixed.html">take a look at all completed challenges</a>.</p>
 
