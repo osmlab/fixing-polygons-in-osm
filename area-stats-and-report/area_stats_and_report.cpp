@@ -90,6 +90,7 @@ void write_stats(const std::string& database_name, const std::string& last_time,
     insert(stmt, last_time, "area_touching_rings_case", stats.area_touching_rings_case);
     insert(stmt, last_time, "duplicate_nodes", stats.duplicate_nodes);
     insert(stmt, last_time, "duplicate_segments", stats.duplicate_segments);
+    insert(stmt, last_time, "duplicate_ways", stats.duplicate_ways);
     insert(stmt, last_time, "from_relations", stats.from_relations);
     insert(stmt, last_time, "from_ways", stats.from_ways);
     insert(stmt, last_time, "inner_rings", stats.inner_rings);
