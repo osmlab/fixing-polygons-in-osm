@@ -78,6 +78,36 @@ void insert(Sqlite::Statement& statement, const std::string& time, const char* k
              .execute();
 }
 
+void write_stats(const std::string& database_name, const std::string& last_time, const osmium::area::area_stats& stats) {
+    Sqlite::Database db{database_name, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE};
+
+    db.exec("CREATE TABLE IF NOT EXISTS stats (date TEXT, key TEXT, value INT64 DEFAULT 0);");
+
+    Sqlite::Statement stmt{db, "INSERT INTO stats (date, key, value) VALUES (?, ?, ?);"};
+
+    insert(stmt, last_time, "area_really_complex_case", stats.area_really_complex_case);
+    insert(stmt, last_time, "area_simple_case", stats.area_simple_case);
+    insert(stmt, last_time, "area_touching_rings_case", stats.area_touching_rings_case);
+    insert(stmt, last_time, "duplicate_nodes", stats.duplicate_nodes);
+    insert(stmt, last_time, "duplicate_segments", stats.duplicate_segments);
+    insert(stmt, last_time, "from_relations", stats.from_relations);
+    insert(stmt, last_time, "from_ways", stats.from_ways);
+    insert(stmt, last_time, "inner_rings", stats.inner_rings);
+    insert(stmt, last_time, "inner_with_same_tags", stats.inner_with_same_tags);
+    insert(stmt, last_time, "intersections", stats.intersections);
+    insert(stmt, last_time, "member_ways", stats.member_ways);
+    insert(stmt, last_time, "no_tags_on_relation", stats.no_tags_on_relation);
+    insert(stmt, last_time, "no_way_in_mp_relation", stats.no_way_in_mp_relation);
+    insert(stmt, last_time, "nodes", stats.nodes);
+    insert(stmt, last_time, "open_rings", stats.open_rings);
+    insert(stmt, last_time, "outer_rings", stats.outer_rings);
+    insert(stmt, last_time, "short_ways", stats.short_ways);
+    insert(stmt, last_time, "single_way_in_mp_relation", stats.single_way_in_mp_relation);
+    insert(stmt, last_time, "touching_rings", stats.touching_rings);
+    insert(stmt, last_time, "ways_in_multiple_rings", stats.ways_in_multiple_rings);
+    insert(stmt, last_time, "wrong_role", stats.wrong_role);
+}
+
 int main(int argc, char* argv[]) {
     osmium::util::VerboseOutput vout{true};
 
@@ -188,37 +218,8 @@ int main(int argc, char* argv[]) {
 
     collector.used_memory();
 
-    {
-        Sqlite::Database db{stats_database_name, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE};
-
-        db.exec("CREATE TABLE IF NOT EXISTS stats (date TEXT, key TEXT, value INT64 DEFAULT 0);");
-
-        Sqlite::Statement stmt{db, "INSERT INTO stats (date, key, value) VALUES (?, ?, ?);"};
-
-        const std::string last_time = last_timestamp.get_timestamp().to_iso();
-        const auto& stats = collector.stats();
-        insert(stmt, last_time, "area_really_complex_case", stats.area_really_complex_case);
-        insert(stmt, last_time, "area_simple_case", stats.area_simple_case);
-        insert(stmt, last_time, "area_touching_rings_case", stats.area_touching_rings_case);
-        insert(stmt, last_time, "duplicate_nodes", stats.duplicate_nodes);
-        insert(stmt, last_time, "duplicate_segments", stats.duplicate_segments);
-        insert(stmt, last_time, "from_relations", stats.from_relations);
-        insert(stmt, last_time, "from_ways", stats.from_ways);
-        insert(stmt, last_time, "inner_rings", stats.inner_rings);
-        insert(stmt, last_time, "inner_with_same_tags", stats.inner_with_same_tags);
-        insert(stmt, last_time, "intersections", stats.intersections);
-        insert(stmt, last_time, "member_ways", stats.member_ways);
-        insert(stmt, last_time, "no_tags_on_relation", stats.no_tags_on_relation);
-        insert(stmt, last_time, "no_way_in_mp_relation", stats.no_way_in_mp_relation);
-        insert(stmt, last_time, "nodes", stats.nodes);
-        insert(stmt, last_time, "open_rings", stats.open_rings);
-        insert(stmt, last_time, "outer_rings", stats.outer_rings);
-        insert(stmt, last_time, "short_ways", stats.short_ways);
-        insert(stmt, last_time, "single_way_in_mp_relation", stats.single_way_in_mp_relation);
-        insert(stmt, last_time, "touching_rings", stats.touching_rings);
-        insert(stmt, last_time, "ways_in_multiple_rings", stats.ways_in_multiple_rings);
-        insert(stmt, last_time, "wrong_role", stats.wrong_role);
-    }
+    const std::string last_time = last_timestamp.get_timestamp().to_iso();
+    write_stats(stats_database_name, last_time, collector.stats());
 
     vout << "Estimated memory usage:\n";
     vout << "  location index: " << (location_index->used_memory() / 1024) << "kB\n";
