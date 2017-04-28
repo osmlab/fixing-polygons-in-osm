@@ -216,6 +216,7 @@ int main(int argc, char* argv[]) {
     reader2.close();
     vout << "Second pass done\n";
 
+    dataset.commit_transaction();
     collector.used_memory();
 
     const std::string last_time = last_timestamp.get_timestamp().to_iso();
