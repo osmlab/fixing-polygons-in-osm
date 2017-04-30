@@ -26,36 +26,6 @@ by piece. We are starting with simpler ones and build up towards
 the more complex problems.</p>
 
 <div class="job">
-    <h3 id="open-rings">Open Rings</h3>
-
-    <p><b>Difficulty level:</b> Normal</p>
-    <p><b>Priority:</b> Medium</p>
-    <p><b>Challenge started:</b> 2017-03-29</p>
-
-    <p><b>Description:</b> Multipolygon relations containing an unclosed
-    ring. So the boundary of the (multi)polygon is not closed. These can
-    not be rendered and must be fixed. Careful, many of these are small, but
-    some of them are huge!</p>
-
-    <p><b>To work on this:</b> Lines show the ring with the markers at the open
-    ends. Look at the aerial images first and determine whether the
-    multipolygon makes sense. Often it can be removed, because there is another
-    (complete) polygon or multipolygon that already does its job. If it can be
-    removed, make sure to remove the multipolygon relation as well as all the
-    member ways that are not needed for something else. If it needs to be kept,
-    close the ring by drawing a new way over the gap or extend an existing way.
-    Some of these need local knowledge to fix. Do not spend too much time on
-    these tasks, if it looks to hard, just mark it as "Too hard to fix".</p>
-
-    <ul>
-        <li><strike><a href="http://maproulette.org/map/2461">Africa</a></strike> (<span class="done">&#10004;</span> done)</li>
-        <li><a href="http://maproulette.org/map/2462">Americas</a></li>
-        <li><strike><a href="http://maproulette.org/map/2463">Asia + Australia</a></strike> (<span class="done">&#10004;</span> done)</li>
-        <li><strike><a href="http://maproulette.org/map/2464">Europe</a></strike> (<span class="done">&#10004;</span> done)</li>
-    </ul>
-</div>
-
-<div class="job">
     <h3 id="spikes-buildings">"Spikes" in Buildings</h3>
 
     <p><b>Difficulty level:</b> Normal</p>
