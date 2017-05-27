@@ -26,39 +26,28 @@ by piece. We are starting with simpler ones and build up towards
 the more complex problems.</p>
 
 <div class="job">
-    <h3 id="inner-with-same-tags">Inner ways with same tags as multipolygon relation</h3>
+    <h3 id="self-intersecting-building-outlines">Self-Intersecting Building Outlines</h3>
 
-    <p><b>Difficulty level:</b> Medium</p>
+    <p><b>Difficulty level:</b> Easy</p>
     <p><b>Priority:</b> Medium</p>
-    <p><b>Challenge started:</b> 2017-05-13</p>
+    <p><b>Challenge started:</b> 2017-05-27</p>
 
-    <p><b>Description:</b> The inner ways in a multipolygon relation must
-    have different tags than the relation. If they have the same tag, why
-    are they there at all? This is often a remnant of very old tagging, or
-    it simply can be an error.</p>
+    <p><b>Description:</b> Building outlines made from a single way that
+    intersects itself. Self-intersection creates invalid polygons that should be
+    fixed. Sometimes these are not rendered.</p>
 
-    <p><b>To fix this:</b> The line shows a multipolygon relation member way
-    that has the same tags as its relation. Look at the tags on the relation
-    and *all* members and make sure they make sense. Outer and inner ways
-    should either have no tags at all or tags only pertaining to those ways.
-    The relation should only have tags pertaining to the whole multipolygon.
-    You also have to look at the other data in the area, sometimes the problem
-    is duplication of data.</p>
+    <p><b>To fix this:</b> Remove the self-intersection. Use the aerial images to
+    verify that there is a building. Often the intersection is due to a
+    node near (or directly on top of) another node at one of the corners
+    and you can simply merge those nodes.</p>
 
-    <p>The challenge has been split up very roughly by region. Italy and
-    the Netherlands have a huge amount of those issues, so they get their
-    own challenge:</p>
+    <p>The challenge has been split up very roughly by region:</p>
 
     <ul>
-    <li><strike><a href="http://maproulette.org/map/2524">Africa</a></strike> (<span class="done">&#10004;</span> done)</li>
-    <li><a href="http://maproulette.org/map/2525">Americas</a></li>
-    <li><strike><a href="http://maproulette.org/map/2526">Asia + Australia</a></strike> (<span class="done">&#10004;</span> done)</li>
-    <li><a href="http://maproulette.org/map/2527">Europe</a></li>
-    <li><strike><a href="http://maproulette.org/map/2528">Italy</a></strike> (<span class="done">&#10004;</span> done)</li>
-    <li><strike><a href="http://maproulette.org/map/2529">Netherlands</a></strike> (<span class="done">&#10004;</span> done)</li>
+    <li><a href="http://maproulette.org/map/2546">Africa</a></li>
+    <li><a href="http://maproulette.org/map/2547">Rest of the world</a></li>
     </ul>
 </div>
-
 
 <p>You can <a href="fixed.html">take a look at all completed challenges</a>.</p>
 
@@ -69,33 +58,6 @@ View</a> in the OSM Inspector show a lot of different information
 about broken areas. It is a great tool for the advanced mapper, but
 can be daunting for the beginner. Old-style multipolygons do not show
 up in this view, because it would be too much data.</p>
-
-<div class="job">
-    <h3 id="fixing-multipolygons-in-south-korea">Fixing multipolygons in South Korea</h3>
-
-    <p><b>Difficulty level:</b> Medium</p>
-    <p><b>Priority:</b> High</p>
-    <p><b>Challenge started:</b> 2017-03-29</p>
-
-    <p><b>Description:</b> South Korea has a lot of broken multipolygons. The
-    problems include self-intersections, overlapping areas, and other problems,
-    mostly on forest and other landuse polygons. The problems are too dense
-    to fix using Maproulette.</p>
-
-    <p><b>To work on this:</b> Go to the OSM Inspector and
-    <a href="http://tools.geofabrik.de/osmi/?view=areas&lon=128.14709&lat=36.54848&zoom=8">look at South Korea</a>.
-    Choose a random starting point, load the area into JOSM and start fixing
-    problems. Upload often to minimize duplicate work.</p>
-    <p>You can load the OSM Inspector Area view into JOSM as a background
-    layer to simplify this. In JOSM, open the menu "Imagary -&gt; Imagery preferences",
-    then find "OSM Inspector: Area" in the "Menu Name" column in the table.
-    Click on it and then the "Activate" button below the table and close the
-    dialog with "OK". You can now choose "OSM Inspector: Area" from the
-    "Imagery" menu whenever you want to add the layer. The layer is transparent,
-    so you can use it together with a satellite image layer.</p>
-
-    <p>Go to <a href="http://tools.geofabrik.de/osmi/?view=areas&overlays=duplicate_node">OSMI</a> (<span class="todo">todo</span>)
-</div>
 
 <div class="job">
     <h3 id="fixing-duplicate-nodes">Fixing duplicate nodes</h3>
@@ -114,6 +76,37 @@ up in this view, because it would be too much data.</p>
     with the little "J" in it). Activate the validator in JOSM and run it.
     Click on the "Mixed type duplicated nodes" warning and then the "Fix"
     button to fix them.</p>
+
+    <p>Go to <a href="http://tools.geofabrik.de/osmi/?view=areas&overlays=duplicate_node">OSMI</a> (<span class="todo">todo</span>)
+</div>
+
+<div class="job job-done">
+    <h3 id="fixing-multipolygons-in-south-korea">Fixing multipolygons in South Korea</h3>
+
+    <p>This is mostly done, South Korea doesn't look worse than other places on
+    the planet now.</p>
+
+    <p><b>Difficulty level:</b> Medium</p>
+    <p><b>Priority:</b> High</p>
+    <p><b>Challenge started:</b> 2017-03-29</p>
+    <p><b>Challenge finished:</b> 2017-05-27</p>
+
+    <p><b>Description:</b> South Korea has a lot of broken multipolygons. The
+    problems include self-intersections, overlapping areas, and other problems,
+    mostly on forest and other landuse polygons. The problems are too dense
+    to fix using Maproulette.</p>
+
+    <p><b>To work on this:</b> Go to the OSM Inspector and
+    <a href="http://tools.geofabrik.de/osmi/?view=areas&lon=128.14709&lat=36.54848&zoom=8">look at South Korea</a>.
+    Choose a random starting point, load the area into JOSM and start fixing
+    problems. Upload often to minimize duplicate work.</p>
+    <p>You can load the OSM Inspector Area view into JOSM as a background
+    layer to simplify this. In JOSM, open the menu "Imagary -&gt; Imagery preferences",
+    then find "OSM Inspector: Area" in the "Menu Name" column in the table.
+    Click on it and then the "Activate" button below the table and close the
+    dialog with "OK". You can now choose "OSM Inspector: Area" from the
+    "Imagery" menu whenever you want to add the layer. The layer is transparent,
+    so you can use it together with a satellite image layer.</p>
 
     <p>Go to <a href="http://tools.geofabrik.de/osmi/?view=areas&overlays=duplicate_node">OSMI</a> (<span class="todo">todo</span>)
 </div>
