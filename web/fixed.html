@@ -470,6 +470,34 @@ href="fixing.html">more to do</a>.</p>
     </ul>
 </div>
 
+<div class="job job-done">
+    <h3 id="single-member-with-same-tags">Same tags on single member way in multipolygon relation (<span class="done">&#10004;</span> job is done)</h3>
+
+    <p><b>Difficulty level:</b> Medium</p>
+    <p><b>Priority:</b> Medium</p>
+    <p><b>Challenge started:</b> 2017-06-20</p>
+    <p><b>Challenge finished:</b> 2017-06-22</p>
+
+    <p><b>Description:</b> Quite often some of the outer or inner ways in a
+    multipolygon relation have the same tags as the relation itself. This is
+    usually wrong and leads to wrong renderings. Note that some tags can be the
+    same, say you have a coniferous forest with a deciduous forest in the middle.
+    But all tags being the same usually doesn't make sense. (Certain tags such as
+    "source" are ignored in this comparison.) A member way should only have the
+    tags describing that specific way only, not anything belonging to the whole
+    multipolygon.</p>
+
+    <p><b>To fix this:</b> Displayed are ways that are a single member of a
+    multipolygon relation and have the same tags as the relation. Often you
+    can just remove the multipolygon, but look at the tags of the relation
+    and the member way and figure out what's right. Look at satellite images
+    to help guide you.</p>
+
+    <ul>
+    <li><strike><a href="http://maproulette.org/map/2616">World</a></strike> (<span class="done">&#10004;</span> done)</li>
+    </ul>
+</div>
+
         </div>
     </body>
 </html>
