@@ -1,7 +1,7 @@
 
 function init_stat(data, key) {
     var radius = 1.5,
-        w = 600,
+        w = 1000,
         h = 400,
         margin = { top: 20, right: 20, bottom: 20, left: 100 };
 
@@ -84,7 +84,7 @@ function init_stat(data, key) {
 
 function init_old_style_percent(data) {
     var radius = 1.5,
-        w = 600,
+        w = 1000,
         h = 200,
         margin = { top: 20, right: 20, bottom: 20, left: 100 };
 
