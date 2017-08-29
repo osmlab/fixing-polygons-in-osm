@@ -1,6 +1,11 @@
 
 # Fixing Polygons in OSM
 
+**As of August 2017 this effort has now been finished! Thanks to everybody
+who contributed. See some results in [this blog
+post](https://blog.jochentopf.com/2017-08-28-polygon-fixing-effort-concluded.html).
+I'll keep this repository around for the time being.**
+
 There are many different ways (multi)polygons in OpenStreetMap can be mapped
 correctly and there are even more ways in which they can be mapped incorrectly.
 Of the over 220 million (multi)polygons in OSM more than 100,000 contain
