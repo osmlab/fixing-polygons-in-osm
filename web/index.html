@@ -16,6 +16,11 @@
 
 <h1>Fixing Polygons in OSM</h1>
 
+<p><b>As of August 2017 this effort has now been finished! Thanks to everybody
+who contributed. See some results in
+<a href="https://blog.jochentopf.com/2017-08-28-polygon-fixing-effort-concluded.html">this
+blog post</a>. I'll keep this website around for the time being.</b></p>
+
 <p>There are many different ways (multi)polygons in OpenStreetMap can be mapped
 correctly and there are even more ways in which they can be mapped incorrectly.
 Of the over 260 million (multi)polygons in OSM more than 100,000 contained
@@ -81,19 +86,19 @@ contains the time of the last update in ISO format.</p>
 
 <dl>
 <dt><a href="/download/areas.db">areas.db</a></dt>
-<dd>Spatialite database containing information about all problems found in OSM areas. (About 1 GByte). Get
+<dd>Spatialite database containing information about all problems found in OSM areas. (About 800 MByte). Get
     <a href="https://raw.githubusercontent.com/osmcode/osm-area-tools/master/area-errors.qgs">this QGIS project file</a> and
     put it in the same directory as the <tt>areas.db</tt> file and run <tt>qgis area-errors.qgs</tt>.</dd>
 <dt><a href="/download/area-stats.db">area-stats.db</a></dt>
 <dd>Sqlite database containing daily statistics on areas in OSM. (Small file)</dd>
 <dt><a href="/download/old-style.osm.pbf">old-style.osm.pbf</a></dt>
 <dd>OSM PBF file containing only old-style multipolygons, ie relations
-    tagged only with <tt>type=multipolygon</tt> with all dependant ways and nodes. (About 270 MBytes)</dd>
+    tagged only with <tt>type=multipolygon</tt> with all dependant ways and nodes. (Small file)</dd>
 <dt><a href="/download/old-style-mp-ways.zip">old-style-mp-ways.zip</a></dt>
 <dd>A shapefile with all ways contained in the file above, so these are the geometries of all ways that are members
-    of old-style multipolygons. (About 410 MBytes)</dd>
+    of old-style multipolygons. (Small file)</dd>
 <dt><a href="/download/broken-polygons.osm.pbf">broken-polygons.osm.pbf</a></dt>
-<dd>OSM PBF file containing all ways and multipolygon relations that are broken in some way. (About 300 MBytes)</dd>
+<dd>OSM PBF file containing all ways and multipolygon relations that are broken in some way. (About 200 MBytes)</dd>
 </dl>
 
 <h2><img src="/img/contact-64.png" width="16" height="16"/> Contact</h2>
